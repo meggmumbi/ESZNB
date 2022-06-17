@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/NavXtender" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NavXtender" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/NavXtender" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="AddLinkToRecord">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="ptxtPageName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="ptxtRecordText" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="ptxtURL" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="ptxtDescription" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AddLinkToRecord_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="AddLinkToRecord">
+    <part name="parameters" element="tns:AddLinkToRecord" />
+  </message>
+  <message name="AddLinkToRecord_Result">
+    <part name="parameters" element="tns:AddLinkToRecord_Result" />
+  </message>
+  <portType name="NavXtender_Port">
+    <operation name="AddLinkToRecord">
+      <input name="AddLinkToRecord" message="tns:AddLinkToRecord" />
+      <output name="AddLinkToRecord_Result" message="tns:AddLinkToRecord_Result" />
+    </operation>
+  </portType>
+  <binding name="NavXtender_Binding" type="tns:NavXtender_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="AddLinkToRecord">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/NavXtender:AddLinkToRecord" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AddLinkToRecord">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AddLinkToRecord_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="NavXtender">
+    <port name="NavXtender_Port" binding="tns:NavXtender_Binding">
+      <address location="http://192.168.0.95:6052/Kasneb/WS/HCA/Codeunit/NavXtender" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>
