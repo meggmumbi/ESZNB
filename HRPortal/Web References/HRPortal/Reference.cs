@@ -163,6 +163,12 @@ namespace HRPortal.HRPortal {
         
         private System.Threading.SendOrPostCallback AddRiskResponseOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnAddRiskRegisterOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateRiskRegisterDivisionOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PostDivisionRegisterOperationCompleted;
+        
         private System.Threading.SendOrPostCallback ResetPasswordOperationCompleted;
         
         private System.Threading.SendOrPostCallback LeaveApplicationOperationCompleted;
@@ -639,6 +645,15 @@ namespace HRPortal.HRPortal {
         
         /// <remarks/>
         public event AddRiskResponseCompletedEventHandler AddRiskResponseCompleted;
+        
+        /// <remarks/>
+        public event FnAddRiskRegisterCompletedEventHandler FnAddRiskRegisterCompleted;
+        
+        /// <remarks/>
+        public event CreateRiskRegisterDivisionCompletedEventHandler CreateRiskRegisterDivisionCompleted;
+        
+        /// <remarks/>
+        public event PostDivisionRegisterCompletedEventHandler PostDivisionRegisterCompleted;
         
         /// <remarks/>
         public event ResetPasswordCompletedEventHandler ResetPasswordCompleted;
@@ -3280,6 +3295,128 @@ namespace HRPortal.HRPortal {
             if ((this.AddRiskResponseCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.AddRiskResponseCompleted(this, new AddRiskResponseCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:FnAddRiskRegister", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="FnAddRiskRegister_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnAddRiskRegister(string applicationNo, string riskCategory, string stratPillars, string risKDescription, string riskLikelihoodCode, decimal riskLikelihoodActualRating, string riskImpactCode, decimal riskImpactActualRating, int riskImpactType, string riskAppetite, string riskImpactCodes, string genRiskRespStrat) {
+            object[] results = this.Invoke("FnAddRiskRegister", new object[] {
+                        applicationNo,
+                        riskCategory,
+                        stratPillars,
+                        risKDescription,
+                        riskLikelihoodCode,
+                        riskLikelihoodActualRating,
+                        riskImpactCode,
+                        riskImpactActualRating,
+                        riskImpactType,
+                        riskAppetite,
+                        riskImpactCodes,
+                        genRiskRespStrat});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnAddRiskRegisterAsync(string applicationNo, string riskCategory, string stratPillars, string risKDescription, string riskLikelihoodCode, decimal riskLikelihoodActualRating, string riskImpactCode, decimal riskImpactActualRating, int riskImpactType, string riskAppetite, string riskImpactCodes, string genRiskRespStrat) {
+            this.FnAddRiskRegisterAsync(applicationNo, riskCategory, stratPillars, risKDescription, riskLikelihoodCode, riskLikelihoodActualRating, riskImpactCode, riskImpactActualRating, riskImpactType, riskAppetite, riskImpactCodes, genRiskRespStrat, null);
+        }
+        
+        /// <remarks/>
+        public void FnAddRiskRegisterAsync(string applicationNo, string riskCategory, string stratPillars, string risKDescription, string riskLikelihoodCode, decimal riskLikelihoodActualRating, string riskImpactCode, decimal riskImpactActualRating, int riskImpactType, string riskAppetite, string riskImpactCodes, string genRiskRespStrat, object userState) {
+            if ((this.FnAddRiskRegisterOperationCompleted == null)) {
+                this.FnAddRiskRegisterOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnAddRiskRegisterOperationCompleted);
+            }
+            this.InvokeAsync("FnAddRiskRegister", new object[] {
+                        applicationNo,
+                        riskCategory,
+                        stratPillars,
+                        risKDescription,
+                        riskLikelihoodCode,
+                        riskLikelihoodActualRating,
+                        riskImpactCode,
+                        riskImpactActualRating,
+                        riskImpactType,
+                        riskAppetite,
+                        riskImpactCodes,
+                        genRiskRespStrat}, this.FnAddRiskRegisterOperationCompleted, userState);
+        }
+        
+        private void OnFnAddRiskRegisterOperationCompleted(object arg) {
+            if ((this.FnAddRiskRegisterCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnAddRiskRegisterCompleted(this, new FnAddRiskRegisterCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:CreateRiskRegisterDivision", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="CreateRiskRegisterDivision_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string CreateRiskRegisterDivision(string applicationNo, string divisonCode, string csp, string consolidated, string yearcode, string officer) {
+            object[] results = this.Invoke("CreateRiskRegisterDivision", new object[] {
+                        applicationNo,
+                        divisonCode,
+                        csp,
+                        consolidated,
+                        yearcode,
+                        officer});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateRiskRegisterDivisionAsync(string applicationNo, string divisonCode, string csp, string consolidated, string yearcode, string officer) {
+            this.CreateRiskRegisterDivisionAsync(applicationNo, divisonCode, csp, consolidated, yearcode, officer, null);
+        }
+        
+        /// <remarks/>
+        public void CreateRiskRegisterDivisionAsync(string applicationNo, string divisonCode, string csp, string consolidated, string yearcode, string officer, object userState) {
+            if ((this.CreateRiskRegisterDivisionOperationCompleted == null)) {
+                this.CreateRiskRegisterDivisionOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateRiskRegisterDivisionOperationCompleted);
+            }
+            this.InvokeAsync("CreateRiskRegisterDivision", new object[] {
+                        applicationNo,
+                        divisonCode,
+                        csp,
+                        consolidated,
+                        yearcode,
+                        officer}, this.CreateRiskRegisterDivisionOperationCompleted, userState);
+        }
+        
+        private void OnCreateRiskRegisterDivisionOperationCompleted(object arg) {
+            if ((this.CreateRiskRegisterDivisionCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateRiskRegisterDivisionCompleted(this, new CreateRiskRegisterDivisionCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:PostDivisionRegister", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="PostDivisionRegister_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string PostDivisionRegister(string applicationNo) {
+            object[] results = this.Invoke("PostDivisionRegister", new object[] {
+                        applicationNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void PostDivisionRegisterAsync(string applicationNo) {
+            this.PostDivisionRegisterAsync(applicationNo, null);
+        }
+        
+        /// <remarks/>
+        public void PostDivisionRegisterAsync(string applicationNo, object userState) {
+            if ((this.PostDivisionRegisterOperationCompleted == null)) {
+                this.PostDivisionRegisterOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPostDivisionRegisterOperationCompleted);
+            }
+            this.InvokeAsync("PostDivisionRegister", new object[] {
+                        applicationNo}, this.PostDivisionRegisterOperationCompleted, userState);
+        }
+        
+        private void OnPostDivisionRegisterOperationCompleted(object arg) {
+            if ((this.PostDivisionRegisterCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PostDivisionRegisterCompleted(this, new PostDivisionRegisterCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -9924,6 +10061,84 @@ namespace HRPortal.HRPortal {
         private object[] results;
         
         internal AddRiskResponseCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnAddRiskRegisterCompletedEventHandler(object sender, FnAddRiskRegisterCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnAddRiskRegisterCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnAddRiskRegisterCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void CreateRiskRegisterDivisionCompletedEventHandler(object sender, CreateRiskRegisterDivisionCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateRiskRegisterDivisionCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateRiskRegisterDivisionCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void PostDivisionRegisterCompletedEventHandler(object sender, PostDivisionRegisterCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PostDivisionRegisterCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal PostDivisionRegisterCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

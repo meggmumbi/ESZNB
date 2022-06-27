@@ -28,6 +28,8 @@ namespace HRPortal
                 Officer.DataValueField = "EmployeeNo";
                 Officer.DataTextField = "EmployeeName";
                 Officer.DataBind();
+                Officer.Items.Insert(0, new ListItem("--select--", ""));
+
             }
         }
 
@@ -216,6 +218,10 @@ namespace HRPortal
                     String requisitionNo = Request.QueryString["requisitionNo"];
                     String status = Config.ObjNav.AddRiskResponse(Convert.ToString(Session["employeeNo"]), requisitionNo, tOriginalNumber, Convert.ToInt32(tOriginalWorkType), tmitigationStrat, triskAction, tOfficer);
                     String[] info = status.Split('*');
+                    mitigationStrat.Text = "";
+                    riskAction.Text = "";
+                    Officer.SelectedValue = "";
+
                     linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
 
                 }

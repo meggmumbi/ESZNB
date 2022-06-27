@@ -49,31 +49,31 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.DropDownList annualreportingcode;
         
         /// <summary>
-        /// DropDownList7 control.
+        /// severityLevel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList7;
+        protected global::System.Web.UI.WebControls.DropDownList severityLevel;
         
         /// <summary>
-        /// DropDownList8 control.
+        /// dateIncident control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList8;
+        protected global::System.Web.UI.WebControls.TextBox dateIncident;
         
         /// <summary>
-        /// DropDownList9 control.
+        /// timeIncident control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList9;
+        protected global::System.Web.UI.WebControls.TextBox timeIncident;
         
         /// <summary>
         /// DropDownList10 control.
@@ -94,22 +94,22 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList11;
         
         /// <summary>
-        /// DropDownList4 control.
+        /// incidentLocations control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
+        protected global::System.Web.UI.WebControls.TextBox incidentLocations;
         
         /// <summary>
-        /// DropDownList5 control.
+        /// primTrigger control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList5;
+        protected global::System.Web.UI.WebControls.DropDownList primTrigger;
         
         /// <summary>
         /// apply control.

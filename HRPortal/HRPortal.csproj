@@ -151,6 +151,7 @@
     <Content Include="css\style.css" />
     <Content Include="DepartmentalRiskManagementPlans.aspx" />
     <Content Include="DirectorateRiskManagementPlans.aspx" />
+    <Content Include="DivisionRiskApp.aspx" />
     <Content Include="EditHelpDeskRequests.aspx" />
     <Content Include="Enquiries.aspx" />
     <Content Include="EscalatedHelpDeskList.aspx" />
@@ -256,10 +257,10 @@
     <Content Include="ViewExamintionAccountDetails.aspx" />
     <None Include="Service References\Nav\service.edmx" />
     <None Include="Web References\HRPortal\HRPortal.wsdl" />
-    <Content Include="Web References\HRPortal\Reference.map">
+    <None Include="Web References\HRPortal\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </Content>
+    </None>
     <None Include="Web References\NavExtender\NavXtender.wsdl" />
     <Content Include="viewResearchandInnovation.aspx" />
     <Content Include="Web References\NavExtender\Reference.map">
@@ -476,6 +477,13 @@
     </Compile>
     <Compile Include="DirectorateRiskManagementPlans.aspx.designer.cs">
       <DependentUpon>DirectorateRiskManagementPlans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DivisionRiskApp.aspx.cs">
+      <DependentUpon>DivisionRiskApp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DivisionRiskApp.aspx.designer.cs">
+      <DependentUpon>DivisionRiskApp.aspx</DependentUpon>
     </Compile>
     <Compile Include="DropDownItems.cs" />
     <Compile Include="EditHelpDeskRequests.aspx.cs">

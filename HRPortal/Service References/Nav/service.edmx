@@ -1,6 +1,23 @@
 ﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
   <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
     <Schema Namespace="NAV" xmlns="http://schemas.microsoft.com/ado/2007/05/edm">
+      <EntityType Name="AllCsps">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Primary_Theme" Type="Edm.String" />
+        <Property Name="Strategy_Framework" Type="Edm.String" />
+        <Property Name="Start_Date" Type="Edm.DateTime" />
+        <Property Name="End_Date" Type="Edm.DateTime" />
+        <Property Name="Duration_Years" Type="Edm.String" />
+        <Property Name="Vision_Statement" Type="Edm.String" />
+        <Property Name="Mission_Statement" Type="Edm.String" />
+        <Property Name="Implementation_Status" Type="Edm.String" />
+        <Property Name="Approval_Status" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
       <EntityType Name="ApplicantAccomplishment">
         <Key>
           <PropertyRef Name="Code" />
@@ -544,6 +561,15 @@
         <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
         <NavigationProperty Name="Student_Reg_No_Link" Relationship="NAV.ExistingStudentApplications_Student_Reg_No_Link" ToRole="Student_Reg_No_Link" FromRole="ExistingStudentApplications" />
       </EntityType>
+      <EntityType Name="FinancialYearCode">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Starting_Date" Type="Edm.DateTime" />
+        <Property Name="Ending_Date" Type="Edm.DateTime" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
       <EntityType Name="JobCardWS">
         <Key>
           <PropertyRef Name="No" />
@@ -918,6 +944,39 @@
         <NavigationProperty Name="Direct_Reports_To_Link" Relationship="NAV.ResponsibilityCenters_Direct_Reports_To_Link" ToRole="Direct_Reports_To_Link" FromRole="ResponsibilityCenters" />
         <NavigationProperty Name="Indirect_Reports_To_Link" Relationship="NAV.ResponsibilityCenters_Indirect_Reports_To_Link" ToRole="Indirect_Reports_To_Link" FromRole="ResponsibilityCenters" />
       </EntityType>
+      <EntityType Name="RiskImpacts">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="RiskRatingActualScale">
+        <Key>
+          <PropertyRef Name="Actual_Rating" />
+          <PropertyRef Name="Code" />
+          <PropertyRef Name="Rating_Scale_ID" />
+          <PropertyRef Name="Rating_Score" />
+          <PropertyRef Name="Risk_Rating_Scale_Type" />
+        </Key>
+        <Property Name="Risk_Rating_Scale_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Rating_Scale_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Rating_Score" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="Actual_Rating" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
+      <EntityType Name="RiskResponseStrategies">
+        <Key>
+          <PropertyRef Name="Strategy_ID" />
+        </Key>
+        <Property Name="Strategy_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Risk_Impact_Type" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Additional_Comments" Type="Edm.String" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
+      </EntityType>
       <EntityType Name="RiskStatusReportLines">
         <Key>
           <PropertyRef Name="Document_No" />
@@ -958,8 +1017,8 @@
         <Property Name="Risk_Response_Action_Taken" Type="Edm.String" />
         <Property Name="Responsible_Officer_No" Type="Edm.String" />
         <Property Name="Responsible_Officer_Name" Type="Edm.String" />
-        <Property Name="Action_Status" Type="Edm.String" />
         <Property Name="Descriptive_Status" Type="Edm.String" />
+        <Property Name="Action_Status" Type="Edm.String" />
         <Property Name="Task_Priority" Type="Edm.String" />
         <Property Name="Action_Type" Type="Edm.String" />
         <Property Name="Planned_Start_Date" Type="Edm.DateTime" />
@@ -986,6 +1045,17 @@
         <Property Name="Responsible_Officer_Name" Type="Edm.String" />
         <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
         <NavigationProperty Name="Responsibility_Center_ID_Link" Relationship="NAV.RmpLineRiskOwnerships_Responsibility_Center_ID_Link" ToRole="Responsibility_Center_ID_Link" FromRole="RmpLineRiskOwnerships" />
+      </EntityType>
+      <EntityType Name="StrategicPillars">
+        <Key>
+          <PropertyRef Name="Source_ID" />
+        </Key>
+        <Property Name="Source_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="No_Of_Risk_Categories" Type="Edm.Int32" />
+        <Property Name="No_Of_Risks" Type="Edm.Int32" />
+        <Property Name="Blocked" Type="Edm.Boolean" />
+        <Property Name="ETag" Type="Edm.String" ConcurrencyMode="Fixed" />
       </EntityType>
       <EntityType Name="StudentsExamBookings">
         <Key>
@@ -6713,6 +6783,15 @@
         <Property Name="No_of_Operational_Risks" Type="Edm.Int32" />
         <Property Name="No_of_Project_Risks" Type="Edm.Int32" />
       </EntityType>
+      <EntityType Name="RiskCategoryTrig">
+        <Key>
+          <PropertyRef Name="Risk_Category_ID" />
+          <PropertyRef Name="Trigger_ID" />
+        </Key>
+        <Property Name="Risk_Category_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Trigger_ID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+      </EntityType>
       <EntityType Name="RiskIdentificationMethods">
         <Key>
           <PropertyRef Name="Code" />
@@ -6759,6 +6838,34 @@
         <Property Name="No_Of_Risk_Mgt_Plans" Type="Edm.Int32" />
         <Property Name="No_of_New_Risk_Vouchers" Type="Edm.Int32" />
         <Property Name="No_of_Risk_Status_Reports" Type="Edm.Int32" />
+      </EntityType>
+      <EntityType Name="RiskRatingScaleLine">
+        <Key>
+          <PropertyRef Name="Actual_Rating" />
+          <PropertyRef Name="Code" />
+          <PropertyRef Name="Line_No" />
+          <PropertyRef Name="Rating_Scale_ID" />
+          <PropertyRef Name="Risk_Rating_Scale_Type" />
+        </Key>
+        <Property Name="Risk_Rating_Scale_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Rating_Scale_ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Min_Probability_Percentage" Type="Edm.Decimal" />
+        <Property Name="Max_Probability_Percentage" Type="Edm.Decimal" />
+        <Property Name="Rating_Score" Type="Edm.Decimal" />
+        <Property Name="Min_Overall_Rating" Type="Edm.Decimal" />
+        <Property Name="Max_Overall_Rating" Type="Edm.Decimal" />
+        <Property Name="Default_Risk_Response_Strategy" Type="Edm.String" />
+        <Property Name="Risk_Heat_Zone" Type="Edm.String" />
+        <Property Name="Risk_Taking_Philosophy" Type="Edm.String" />
+        <Property Name="Tolerance" Type="Edm.String" />
+        <Property Name="Choice" Type="Edm.String" />
+        <Property Name="Trade_Off" Type="Edm.String" />
+        <Property Name="Line_No" Type="Edm.Int32" Nullable="false" />
+        <Property Name="Actual_Rating" Type="Edm.Decimal" Nullable="false" />
+        <Property Name="No_of_Criteria" Type="Edm.Int32" />
+        <Property Name="No_of_Risk_Response_Actions" Type="Edm.Int32" />
       </EntityType>
       <EntityType Name="RiskResponceStrategy">
         <Key>
@@ -7057,6 +7164,14 @@
         <Property Name="Prepaid_Amount" Type="Edm.Decimal" />
         <Property Name="Service_Contracts" Type="Edm.Boolean" />
         <Property Name="Total_Qty_Consumed" Type="Edm.Decimal" />
+      </EntityType>
+      <EntityType Name="severityLevel">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" Nullable="false" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="No_Of_Reported_Incidents" Type="Edm.Int32" />
       </EntityType>
       <EntityType Name="sourceInformation">
         <Key>
@@ -8539,6 +8654,7 @@
           <PropertyRef Name="Name" />
         </Key>
         <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <NavigationProperty Name="AllCsps" Relationship="NAV.Company_AllCsps" ToRole="AllCsps" FromRole="Company" />
         <NavigationProperty Name="ApplicantAccomplishment" Relationship="NAV.Company_ApplicantAccomplishment" ToRole="ApplicantAccomplishment" FromRole="Company" />
         <NavigationProperty Name="ApplicantEmployeeHistory" Relationship="NAV.Company_ApplicantEmployeeHistory" ToRole="ApplicantEmployeeHistory" FromRole="Company" />
         <NavigationProperty Name="ApprovalEntriesPage" Relationship="NAV.Company_ApprovalEntriesPage" ToRole="ApprovalEntriesPage" FromRole="Company" />
@@ -8558,6 +8674,7 @@
         <NavigationProperty Name="ExamZones" Relationship="NAV.Company_ExamZones" ToRole="ExamZones" FromRole="Company" />
         <NavigationProperty Name="ExemptionEntries" Relationship="NAV.Company_ExemptionEntries" ToRole="ExemptionEntries" FromRole="Company" />
         <NavigationProperty Name="ExistingStudentApplications" Relationship="NAV.Company_ExistingStudentApplications" ToRole="ExistingStudentApplications" FromRole="Company" />
+        <NavigationProperty Name="FinancialYearCode" Relationship="NAV.Company_FinancialYearCode" ToRole="FinancialYearCode" FromRole="Company" />
         <NavigationProperty Name="JobCardWS" Relationship="NAV.Company_JobCardWS" ToRole="JobCardWS" FromRole="Company" />
         <NavigationProperty Name="JobCardWSJobTaskLines" Relationship="NAV.Company_JobCardWSJobTaskLines" ToRole="JobCardWSJobTaskLines" FromRole="Company" />
         <NavigationProperty Name="JobTaskLinesWS" Relationship="NAV.Company_JobTaskLinesWS" ToRole="JobTaskLinesWS" FromRole="Company" />
@@ -8568,9 +8685,13 @@
         <NavigationProperty Name="ProductsPerRegion" Relationship="NAV.Company_ProductsPerRegion" ToRole="ProductsPerRegion" FromRole="Company" />
         <NavigationProperty Name="Remarks" Relationship="NAV.Company_Remarks" ToRole="Remarks" FromRole="Company" />
         <NavigationProperty Name="ResponsibilityCenters" Relationship="NAV.Company_ResponsibilityCenters" ToRole="ResponsibilityCenters" FromRole="Company" />
+        <NavigationProperty Name="RiskImpacts" Relationship="NAV.Company_RiskImpacts" ToRole="RiskImpacts" FromRole="Company" />
+        <NavigationProperty Name="RiskRatingActualScale" Relationship="NAV.Company_RiskRatingActualScale" ToRole="RiskRatingActualScale" FromRole="Company" />
+        <NavigationProperty Name="RiskResponseStrategies" Relationship="NAV.Company_RiskResponseStrategies" ToRole="RiskResponseStrategies" FromRole="Company" />
         <NavigationProperty Name="RiskStatusReportLines" Relationship="NAV.Company_RiskStatusReportLines" ToRole="RiskStatusReportLines" FromRole="Company" />
         <NavigationProperty Name="RMPLineResponseActions" Relationship="NAV.Company_RMPLineResponseActions" ToRole="RMPLineResponseActions" FromRole="Company" />
         <NavigationProperty Name="RmpLineRiskOwnerships" Relationship="NAV.Company_RmpLineRiskOwnerships" ToRole="RmpLineRiskOwnerships" FromRole="Company" />
+        <NavigationProperty Name="StrategicPillars" Relationship="NAV.Company_StrategicPillars" ToRole="StrategicPillars" FromRole="Company" />
         <NavigationProperty Name="StudentsExamBookings" Relationship="NAV.Company_StudentsExamBookings" ToRole="StudentsExamBookings" FromRole="Company" />
         <NavigationProperty Name="Subjects" Relationship="NAV.Company_Subjects" ToRole="Subjects" FromRole="Company" />
         <NavigationProperty Name="SubmittedStudentCases" Relationship="NAV.Company_SubmittedStudentCases" ToRole="SubmittedStudentCases" FromRole="Company" />
@@ -8786,8 +8907,10 @@
         <NavigationProperty Name="rfiResponseT" Relationship="NAV.Company_rfiResponseT" ToRole="rfiResponseT" FromRole="Company" />
         <NavigationProperty Name="RFQApps" Relationship="NAV.Company_RFQApps" ToRole="RFQApps" FromRole="Company" />
         <NavigationProperty Name="RiskCategory" Relationship="NAV.Company_RiskCategory" ToRole="RiskCategory" FromRole="Company" />
+        <NavigationProperty Name="RiskCategoryTrig" Relationship="NAV.Company_RiskCategoryTrig" ToRole="RiskCategoryTrig" FromRole="Company" />
         <NavigationProperty Name="RiskIdentificationMethods" Relationship="NAV.Company_RiskIdentificationMethods" ToRole="RiskIdentificationMethods" FromRole="Company" />
         <NavigationProperty Name="RiskManagement" Relationship="NAV.Company_RiskManagement" ToRole="RiskManagement" FromRole="Company" />
+        <NavigationProperty Name="RiskRatingScaleLine" Relationship="NAV.Company_RiskRatingScaleLine" ToRole="RiskRatingScaleLine" FromRole="Company" />
         <NavigationProperty Name="RiskResponceStrategy" Relationship="NAV.Company_RiskResponceStrategy" ToRole="RiskResponceStrategy" FromRole="Company" />
         <NavigationProperty Name="SafetyWorkGroup" Relationship="NAV.Company_SafetyWorkGroup" ToRole="SafetyWorkGroup" FromRole="Company" />
         <NavigationProperty Name="SafeWorkPermitType" Relationship="NAV.Company_SafeWorkPermitType" ToRole="SafeWorkPermitType" FromRole="Company" />
@@ -8796,6 +8919,7 @@
         <NavigationProperty Name="SalesOrdersBySalesPerson" Relationship="NAV.Company_SalesOrdersBySalesPerson" ToRole="SalesOrdersBySalesPerson" FromRole="Company" />
         <NavigationProperty Name="SecondaryPCObjective" Relationship="NAV.Company_SecondaryPCObjective" ToRole="SecondaryPCObjective" FromRole="Company" />
         <NavigationProperty Name="serviceitems" Relationship="NAV.Company_serviceitems" ToRole="serviceitems" FromRole="Company" />
+        <NavigationProperty Name="severityLevel" Relationship="NAV.Company_severityLevel" ToRole="severityLevel" FromRole="Company" />
         <NavigationProperty Name="sourceInformation" Relationship="NAV.Company_sourceInformation" ToRole="sourceInformation" FromRole="Company" />
         <NavigationProperty Name="SpecialCatGroups" Relationship="NAV.Company_SpecialCatGroups" ToRole="SpecialCatGroups" FromRole="Company" />
         <NavigationProperty Name="SpecialGroupCategories" Relationship="NAV.Company_SpecialGroupCategories" ToRole="SpecialGroupCategories" FromRole="Company" />
@@ -9022,6 +9146,10 @@
         <End Type="NAV.VacantPositions" Role="VacantPositions" Multiplicity="*" />
         <End Type="NAV.ResponsibilityCenters" Role="Responsibility_Center_Link" Multiplicity="0..1" />
       </Association>
+      <Association Name="Company_AllCsps">
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+        <End Type="NAV.AllCsps" Role="AllCsps" Multiplicity="*" />
+      </Association>
       <Association Name="Company_ApplicantAccomplishment">
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
         <End Type="NAV.ApplicantAccomplishment" Role="ApplicantAccomplishment" Multiplicity="*" />
@@ -9098,6 +9226,10 @@
         <End Type="NAV.ExistingStudentApplications" Role="ExistingStudentApplications" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
+      <Association Name="Company_FinancialYearCode">
+        <End Type="NAV.FinancialYearCode" Role="FinancialYearCode" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
       <Association Name="Company_JobCardWS">
         <End Type="NAV.JobCardWS" Role="JobCardWS" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
@@ -9138,6 +9270,18 @@
         <End Type="NAV.ResponsibilityCenters" Role="ResponsibilityCenters" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
+      <Association Name="Company_RiskImpacts">
+        <End Type="NAV.RiskImpacts" Role="RiskImpacts" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_RiskRatingActualScale">
+        <End Type="NAV.RiskRatingActualScale" Role="RiskRatingActualScale" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_RiskResponseStrategies">
+        <End Type="NAV.RiskResponseStrategies" Role="RiskResponseStrategies" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
       <Association Name="Company_RiskStatusReportLines">
         <End Type="NAV.RiskStatusReportLines" Role="RiskStatusReportLines" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
@@ -9148,6 +9292,10 @@
       </Association>
       <Association Name="Company_RmpLineRiskOwnerships">
         <End Type="NAV.RmpLineRiskOwnerships" Role="RmpLineRiskOwnerships" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_StrategicPillars">
+        <End Type="NAV.StrategicPillars" Role="StrategicPillars" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
       <Association Name="Company_StudentsExamBookings">
@@ -10010,12 +10158,20 @@
         <End Type="NAV.RiskCategory" Role="RiskCategory" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
+      <Association Name="Company_RiskCategoryTrig">
+        <End Type="NAV.RiskCategoryTrig" Role="RiskCategoryTrig" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
       <Association Name="Company_RiskIdentificationMethods">
         <End Type="NAV.RiskIdentificationMethods" Role="RiskIdentificationMethods" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
       <Association Name="Company_RiskManagement">
         <End Type="NAV.RiskManagement" Role="RiskManagement" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_RiskRatingScaleLine">
+        <End Type="NAV.RiskRatingScaleLine" Role="RiskRatingScaleLine" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
       <Association Name="Company_RiskResponceStrategy">
@@ -10048,6 +10204,10 @@
       </Association>
       <Association Name="Company_serviceitems">
         <End Type="NAV.serviceitems" Role="serviceitems" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
+      <Association Name="Company_severityLevel">
+        <End Type="NAV.severityLevel" Role="severityLevel" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
       <Association Name="Company_sourceInformation">
@@ -10263,6 +10423,7 @@
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
       <EntityContainer Name="NAV" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="AllCsps" EntityType="NAV.AllCsps" />
         <EntitySet Name="ApplicantAccomplishment" EntityType="NAV.ApplicantAccomplishment" />
         <EntitySet Name="ApplicantEmployeeHistory" EntityType="NAV.ApplicantEmployeeHistory" />
         <EntitySet Name="ApprovalEntriesPage" EntityType="NAV.ApprovalEntriesPage" />
@@ -10282,6 +10443,7 @@
         <EntitySet Name="ExamZones" EntityType="NAV.ExamZones" />
         <EntitySet Name="ExemptionEntries" EntityType="NAV.ExemptionEntries" />
         <EntitySet Name="ExistingStudentApplications" EntityType="NAV.ExistingStudentApplications" />
+        <EntitySet Name="FinancialYearCode" EntityType="NAV.FinancialYearCode" />
         <EntitySet Name="JobCardWS" EntityType="NAV.JobCardWS" />
         <EntitySet Name="JobCardWSJobTaskLines" EntityType="NAV.JobCardWSJobTaskLines" />
         <EntitySet Name="JobTaskLinesWS" EntityType="NAV.JobTaskLinesWS" />
@@ -10292,9 +10454,13 @@
         <EntitySet Name="ProductsPerRegion" EntityType="NAV.ProductsPerRegion" />
         <EntitySet Name="Remarks" EntityType="NAV.Remarks" />
         <EntitySet Name="ResponsibilityCenters" EntityType="NAV.ResponsibilityCenters" />
+        <EntitySet Name="RiskImpacts" EntityType="NAV.RiskImpacts" />
+        <EntitySet Name="RiskRatingActualScale" EntityType="NAV.RiskRatingActualScale" />
+        <EntitySet Name="RiskResponseStrategies" EntityType="NAV.RiskResponseStrategies" />
         <EntitySet Name="RiskStatusReportLines" EntityType="NAV.RiskStatusReportLines" />
         <EntitySet Name="RMPLineResponseActions" EntityType="NAV.RMPLineResponseActions" />
         <EntitySet Name="RmpLineRiskOwnerships" EntityType="NAV.RmpLineRiskOwnerships" />
+        <EntitySet Name="StrategicPillars" EntityType="NAV.StrategicPillars" />
         <EntitySet Name="StudentsExamBookings" EntityType="NAV.StudentsExamBookings" />
         <EntitySet Name="Subjects" EntityType="NAV.Subjects" />
         <EntitySet Name="SubmittedStudentCases" EntityType="NAV.SubmittedStudentCases" />
@@ -10510,8 +10676,10 @@
         <EntitySet Name="rfiResponseT" EntityType="NAV.rfiResponseT" />
         <EntitySet Name="RFQApps" EntityType="NAV.RFQApps" />
         <EntitySet Name="RiskCategory" EntityType="NAV.RiskCategory" />
+        <EntitySet Name="RiskCategoryTrig" EntityType="NAV.RiskCategoryTrig" />
         <EntitySet Name="RiskIdentificationMethods" EntityType="NAV.RiskIdentificationMethods" />
         <EntitySet Name="RiskManagement" EntityType="NAV.RiskManagement" />
+        <EntitySet Name="RiskRatingScaleLine" EntityType="NAV.RiskRatingScaleLine" />
         <EntitySet Name="RiskResponceStrategy" EntityType="NAV.RiskResponceStrategy" />
         <EntitySet Name="SafetyWorkGroup" EntityType="NAV.SafetyWorkGroup" />
         <EntitySet Name="SafeWorkPermitType" EntityType="NAV.SafeWorkPermitType" />
@@ -10520,6 +10688,7 @@
         <EntitySet Name="SalesOrdersBySalesPerson" EntityType="NAV.SalesOrdersBySalesPerson" />
         <EntitySet Name="SecondaryPCObjective" EntityType="NAV.SecondaryPCObjective" />
         <EntitySet Name="serviceitems" EntityType="NAV.serviceitems" />
+        <EntitySet Name="severityLevel" EntityType="NAV.severityLevel" />
         <EntitySet Name="sourceInformation" EntityType="NAV.sourceInformation" />
         <EntitySet Name="SpecialCatGroups" EntityType="NAV.SpecialCatGroups" />
         <EntitySet Name="SpecialGroupCategories" EntityType="NAV.SpecialGroupCategories" />
@@ -10746,6 +10915,10 @@
           <End Role="VacantPositions" EntitySet="VacantPositions" />
           <End Role="Responsibility_Center_Link" EntitySet="ResponsibilityCenters" />
         </AssociationSet>
+        <AssociationSet Name="Company_AllCsps_AllCsps" Association="NAV.Company_AllCsps">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="AllCsps" EntitySet="AllCsps" />
+        </AssociationSet>
         <AssociationSet Name="Company_ApplicantAccomplishment_ApplicantAccomplishment" Association="NAV.Company_ApplicantAccomplishment">
           <End Role="Company" EntitySet="Company" />
           <End Role="ApplicantAccomplishment" EntitySet="ApplicantAccomplishment" />
@@ -10822,6 +10995,10 @@
           <End Role="Company" EntitySet="Company" />
           <End Role="ExistingStudentApplications" EntitySet="ExistingStudentApplications" />
         </AssociationSet>
+        <AssociationSet Name="Company_FinancialYearCode_FinancialYearCode" Association="NAV.Company_FinancialYearCode">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="FinancialYearCode" EntitySet="FinancialYearCode" />
+        </AssociationSet>
         <AssociationSet Name="Company_JobCardWS_JobCardWS" Association="NAV.Company_JobCardWS">
           <End Role="Company" EntitySet="Company" />
           <End Role="JobCardWS" EntitySet="JobCardWS" />
@@ -10862,6 +11039,18 @@
           <End Role="Company" EntitySet="Company" />
           <End Role="ResponsibilityCenters" EntitySet="ResponsibilityCenters" />
         </AssociationSet>
+        <AssociationSet Name="Company_RiskImpacts_RiskImpacts" Association="NAV.Company_RiskImpacts">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="RiskImpacts" EntitySet="RiskImpacts" />
+        </AssociationSet>
+        <AssociationSet Name="Company_RiskRatingActualScale_RiskRatingActualScale" Association="NAV.Company_RiskRatingActualScale">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="RiskRatingActualScale" EntitySet="RiskRatingActualScale" />
+        </AssociationSet>
+        <AssociationSet Name="Company_RiskResponseStrategies_RiskResponseStrategies" Association="NAV.Company_RiskResponseStrategies">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="RiskResponseStrategies" EntitySet="RiskResponseStrategies" />
+        </AssociationSet>
         <AssociationSet Name="Company_RiskStatusReportLines_RiskStatusReportLines" Association="NAV.Company_RiskStatusReportLines">
           <End Role="Company" EntitySet="Company" />
           <End Role="RiskStatusReportLines" EntitySet="RiskStatusReportLines" />
@@ -10873,6 +11062,10 @@
         <AssociationSet Name="Company_RmpLineRiskOwnerships_RmpLineRiskOwnerships" Association="NAV.Company_RmpLineRiskOwnerships">
           <End Role="Company" EntitySet="Company" />
           <End Role="RmpLineRiskOwnerships" EntitySet="RmpLineRiskOwnerships" />
+        </AssociationSet>
+        <AssociationSet Name="Company_StrategicPillars_StrategicPillars" Association="NAV.Company_StrategicPillars">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="StrategicPillars" EntitySet="StrategicPillars" />
         </AssociationSet>
         <AssociationSet Name="Company_StudentsExamBookings_StudentsExamBookings" Association="NAV.Company_StudentsExamBookings">
           <End Role="Company" EntitySet="Company" />
@@ -11734,6 +11927,10 @@
           <End Role="Company" EntitySet="Company" />
           <End Role="RiskCategory" EntitySet="RiskCategory" />
         </AssociationSet>
+        <AssociationSet Name="Company_RiskCategoryTrig_RiskCategoryTrig" Association="NAV.Company_RiskCategoryTrig">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="RiskCategoryTrig" EntitySet="RiskCategoryTrig" />
+        </AssociationSet>
         <AssociationSet Name="Company_RiskIdentificationMethods_RiskIdentificationMethods" Association="NAV.Company_RiskIdentificationMethods">
           <End Role="Company" EntitySet="Company" />
           <End Role="RiskIdentificationMethods" EntitySet="RiskIdentificationMethods" />
@@ -11741,6 +11938,10 @@
         <AssociationSet Name="Company_RiskManagement_RiskManagement" Association="NAV.Company_RiskManagement">
           <End Role="Company" EntitySet="Company" />
           <End Role="RiskManagement" EntitySet="RiskManagement" />
+        </AssociationSet>
+        <AssociationSet Name="Company_RiskRatingScaleLine_RiskRatingScaleLine" Association="NAV.Company_RiskRatingScaleLine">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="RiskRatingScaleLine" EntitySet="RiskRatingScaleLine" />
         </AssociationSet>
         <AssociationSet Name="Company_RiskResponceStrategy_RiskResponceStrategy" Association="NAV.Company_RiskResponceStrategy">
           <End Role="Company" EntitySet="Company" />
@@ -11773,6 +11974,10 @@
         <AssociationSet Name="Company_serviceitems_serviceitems" Association="NAV.Company_serviceitems">
           <End Role="Company" EntitySet="Company" />
           <End Role="serviceitems" EntitySet="serviceitems" />
+        </AssociationSet>
+        <AssociationSet Name="Company_severityLevel_severityLevel" Association="NAV.Company_severityLevel">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="severityLevel" EntitySet="severityLevel" />
         </AssociationSet>
         <AssociationSet Name="Company_sourceInformation_sourceInformation" Association="NAV.Company_sourceInformation">
           <End Role="Company" EntitySet="Company" />

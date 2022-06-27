@@ -32,7 +32,7 @@
                         <td><% =Convert.ToDateTime(risk.Document_Date).ToString("dd/MM/yyyy")%></td>
                         <td><% =risk.Corporate_Strategic_Plan_ID%></td>
                         <td><% =risk.Year_Code%></td>
-                        <td><a href="StrategicRiskPlanCard.aspx?DocumentNo=<%=risk.Document_No %>" class="btn btn-success"><i class="fa fa-eye"></i>View Details</a> </td>
+                        <td><a href="StrategicRiskPlanCard.aspx?DocumentNo=<%=risk.Document_No %>&&DocType=<%=risk.Document_Type %>" class="btn btn-success"><i class="fa fa-eye"></i>View Details</a> </td>
                         <%
                             } %>
                     </tr>

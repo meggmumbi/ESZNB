@@ -17,10 +17,28 @@ namespace HRPortal
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (Session["employeeNo"] == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("Login.aspx");
+
+                if (Session["employeeNo"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+
+                var nav = new Config().ReturnNav();
+                var severityLevels = nav.severityLevel;
+                severityLevel.DataSource = severityLevels;
+                severityLevel.DataValueField = "Code";
+                severityLevel.DataTextField = "Description";
+                severityLevel.DataBind();
+                severityLevel.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
+
+                var trigger = nav.RiskCategoryTrig;
+                primTrigger.DataSource = trigger;
+                primTrigger.DataValueField = "Risk_Category_ID";
+                primTrigger.DataTextField = "Description";
+                primTrigger.DataBind();
+                primTrigger.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--select--", ""));
             }
         }
         protected void uploadDocument_Click(object sender, EventArgs e)
@@ -199,6 +217,94 @@ namespace HRPortal
                 documentsfeedback.InnerHtml = "<div class='alert alert-danger'>'" + ex.Message + "' <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
 
                 //throw;
+            }
+
+
+        }
+        protected void riskType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string docType = strategicplanno.SelectedValue.Trim();
+            if (docType == "1")
+            {
+                var nav = new Config().ReturnNav();
+                var riskMngt = nav.managementPlans.Where(r => r.Document_Type == "Corporate");
+                funcionalworkplan.DataSource = riskMngt;
+                funcionalworkplan.DataTextField = "Description";
+                funcionalworkplan.DataValueField = "Document_No";
+                funcionalworkplan.DataBind();
+            }
+            else if (docType == "2")
+            {
+                var nav = new Config().ReturnNav();
+                var riskMngt = nav.managementPlans.Where(r => r.Document_Type == "Functional (Directorate)");
+                funcionalworkplan.DataSource = riskMngt;
+                funcionalworkplan.DataTextField = "Description";
+                funcionalworkplan.DataValueField = "Document_No";
+                funcionalworkplan.DataBind();
+            }
+            else if (docType == "3")
+            {
+                var nav = new Config().ReturnNav();
+                var riskMngt = nav.managementPlans.Where(r => r.Document_Type == "Functional (Department)");
+                funcionalworkplan.DataSource = riskMngt;
+                funcionalworkplan.DataTextField = "Description";
+                funcionalworkplan.DataValueField = "Document_No";
+                funcionalworkplan.DataBind();
+            }
+            else if (docType == "4")
+            {
+                var nav = new Config().ReturnNav();
+                var riskMngt = nav.managementPlans.Where(r => r.Document_Type == "Project");
+                funcionalworkplan.DataSource = riskMngt;
+                funcionalworkplan.DataTextField = "Description";
+                funcionalworkplan.DataValueField = "Document_No";
+                funcionalworkplan.DataBind();
+            }
+
+        }
+
+        protected void funcionalworkplan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var nav = new Config().ReturnNav();
+            
+            string docType = strategicplanno.SelectedValue.Trim();
+            
+             
+               
+            if (docType == "1")
+            {
+               
+                var riskMngt = nav.ManagementPlanLines.Where(r => r.Document_Type == "Corporate");
+                annualreportingcode.DataSource = riskMngt;
+                annualreportingcode.DataTextField = "Risk_Title";
+                annualreportingcode.DataValueField = "Document_No";
+                annualreportingcode.DataBind();
+            }
+            else if (docType == "2")
+            {
+                
+                var riskMngt = nav.ManagementPlanLines.Where(r => r.Document_Type == "Functional (Directorate)");
+                annualreportingcode.DataSource = riskMngt;
+                annualreportingcode.DataTextField = "Risk_Title";
+                annualreportingcode.DataValueField = "Document_No";
+                annualreportingcode.DataBind();
+            }
+            else if (docType == "3")
+            {
+                
+                var riskMngt = nav.ManagementPlanLines.Where(r => r.Document_Type == "Functional (Department)");
+                annualreportingcode.DataSource = riskMngt;
+                annualreportingcode.DataTextField = "Risk_Title";
+                annualreportingcode.DataValueField = "Document_No";
+                annualreportingcode.DataBind();
+            }
+            else if (docType == "4")
+            {
+                var riskMngt = nav.ManagementPlanLines.Where(r => r.Document_Type == "Project");
+                annualreportingcode.DataSource = riskMngt;
+                annualreportingcode.DataTextField = "Risk_Title";
+                annualreportingcode.DataValueField = "Document_No";
+                annualreportingcode.DataBind();
             }
 
 

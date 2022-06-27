@@ -25,7 +25,7 @@
                         string doctype = Request.QueryString["DocumentType"];
                         int riskId = Convert.ToInt32(Request.QueryString["RiskId"]);
                         string docNumber = Request.QueryString["DocumentNo"];
-                        var queryRisk = nav.RmpLineRiskOwnerships.Where(r => r.Risk_ID==riskId && r.Document_No==docNumber);
+                        var queryRisk = nav.RmpLineRiskOwnerships.Where(r => r.Risk_ID==riskId && r.Document_No==docNumber && r.Document_Type==doctype);
                         foreach (var risk in queryRisk)
                         {
                     %>

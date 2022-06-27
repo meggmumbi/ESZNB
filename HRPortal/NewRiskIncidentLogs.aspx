@@ -69,14 +69,24 @@
                         <asp:Label runat="server" class="form-control" readonly="true"> <%=Session["name"] %></asp:Label>
                     </div>
                 </div>--%>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
-                        <label class="control-label">Risk Register Type.</label>
-                        <asp:DropDownList runat="server" ID="strategicplanno" Class="form-control" />
+              <div class="row">
+                            <div class="col-md-6 col-lg-6">
+                         <div class="form-group">
+                        <strong>Risk Register Type</strong>
+                        <asp:DropDownList ID="strategicplanno" runat="server" CssClass="form-control select2" OnSelectedIndexChanged="riskType_SelectedIndexChanged" AutoPostBack="true">
+                            <asp:ListItem>Select</asp:ListItem>
+                            <asp:ListItem Value="1">Corporate</asp:ListItem>
+                            <asp:ListItem Value="2">Functional (Directorate)</asp:ListItem>
+                            <asp:ListItem Value="3">Functional (Department)</asp:ListItem>
+                            <asp:ListItem Value="4">Project</asp:ListItem>
+                        </asp:DropDownList>
                     </div>
+                       
+                    </div>
+                         <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label class="control-label">Risk Management Plan</label>
-                        <asp:DropDownList runat="server" ID="funcionalworkplan" Class="form-control" AppendDataBoundItems="true">
+                        <asp:DropDownList runat="server" ID="funcionalworkplan" Class="form-control" OnSelectedIndexChanged="funcionalworkplan_SelectedIndexChanged" AutoPostBack="true">
                             <asp:ListItem>--Select Department/Center PC ID--</asp:ListItem>
                         </asp:DropDownList>
                     </div>
@@ -86,19 +96,24 @@
                         <label class="control-label">Risk Incident Category.</label>
                         <asp:DropDownList runat="server" ID="annualreportingcode" Class="form-control" />
                     </div>
+                    </div>
+                     <div class="col-md-6 col-lg-6">
                     <div class="form-group">
                         <label class="control-label">Severity Level.</label>
-                        <asp:DropDownList runat="server" ID="DropDownList7" Class="form-control" />
+                        <asp:DropDownList runat="server" ID="severityLevel" Class="form-control" />
                     </div>
                 </div>
+
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <label class="control-label">Incident Start Time.</label>
-                        <asp:DropDownList runat="server" ID="DropDownList8" Class="form-control" />
+                        <label class="control-label">Incident Date .</label>
+                        <asp:Textbox runat="server" ID="dateIncident" TextMode="Date" Class="form-control" />
                     </div>
+                    </div>
+                     <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <label class="control-label">Incident Start Time.</label>
-                        <asp:DropDownList runat="server" ID="DropDownList9" Class="form-control" />
+                        <label class="control-label">Incident Time.</label>
+                        <asp:Textbox runat="server" ID="timeIncident" TextMode="Time" Class="form-control" />
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6">
@@ -106,23 +121,30 @@
                         <label class="control-label">Incident Date.</label>
                         <asp:DropDownList runat="server" ID="DropDownList10" Class="form-control" />
                     </div>
-                    <div class="form-group">
-                        <label class="control-label">Incident Location Details.</label>
-                        <asp:DropDownList runat="server" ID="DropDownList11" Class="form-control" />
                     </div>
-                </div>
+                     <div class="col-md-6 col-lg-6">
+                    <div class="form-group">
+                        <label class="control-label">Occurrence Type.</label>
+                        <asp:DropDownList runat="server" ID="DropDownList11" Class="form-control">
+                            <asp:ListItem Value="0">--select--</asp:ListItem>
+                            <asp:ListItem Value="1">Occurred</asp:ListItem>
+                            <asp:ListItem Value="2">Near-Miss</asp:ListItem>
+                            </asp:DropDownList>
+                    </div>
+                </div>              
                 <div class="col-md-6 col-lg-6">
                     <div class="form-group">
-                        <label class="control-label">Incident Date.</label>
-                        <asp:DropDownList runat="server" ID="DropDownList4" Class="form-control" />
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6">
-                    <div class="form-group">
                         <label class="control-label">Incident Location Details.</label>
-                        <asp:DropDownList runat="server" ID="DropDownList5" Class="form-control" />
+                        <asp:Textbox runat="server" ID="incidentLocations" Class="form-control" />
                     </div>
                 </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="form-group">
+                            <label class="control-label">Primary Trigger.</label>
+                            <asp:DropDownList runat="server" ID="primTrigger" Class="form-control" />
+                        </div>
+                    </div>
+                  </div>
                 <div class="col-md-12 col-lg-12">
                     <div class="panel-footer">
                         <center>
@@ -135,7 +157,7 @@
                 <div class="row">
                     <button class="btn btn-warning nextBtn pull-right" type="button">Next</button>
                 </div>
-            </div>
+           
         </div>
         <div class="panel panel-primary setup-content" id="step-2">
             <div class="panel panel-heading">

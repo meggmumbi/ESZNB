@@ -1069,6 +1069,64 @@
           </sequence>
         </complexType>
       </element>
+      <element name="FnAddRiskRegister">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="riskCategory" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="stratPillars" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="risKDescription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="riskLikelihoodCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="riskLikelihoodActualRating" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="riskImpactCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="riskImpactActualRating" type="decimal" />
+            <element minOccurs="1" maxOccurs="1" name="riskImpactType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="riskAppetite" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="riskImpactCodes" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="genRiskRespStrat" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAddRiskRegister_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateRiskRegisterDivision">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="divisonCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="csp" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="consolidated" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="yearcode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="officer" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateRiskRegisterDivision_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostDivisionRegister">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostDivisionRegister_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="ResetPassword">
         <complexType>
           <sequence>
@@ -3620,6 +3678,24 @@
   <message name="AddRiskResponse_Result">
     <part name="parameters" element="tns:AddRiskResponse_Result" />
   </message>
+  <message name="FnAddRiskRegister">
+    <part name="parameters" element="tns:FnAddRiskRegister" />
+  </message>
+  <message name="FnAddRiskRegister_Result">
+    <part name="parameters" element="tns:FnAddRiskRegister_Result" />
+  </message>
+  <message name="CreateRiskRegisterDivision">
+    <part name="parameters" element="tns:CreateRiskRegisterDivision" />
+  </message>
+  <message name="CreateRiskRegisterDivision_Result">
+    <part name="parameters" element="tns:CreateRiskRegisterDivision_Result" />
+  </message>
+  <message name="PostDivisionRegister">
+    <part name="parameters" element="tns:PostDivisionRegister" />
+  </message>
+  <message name="PostDivisionRegister_Result">
+    <part name="parameters" element="tns:PostDivisionRegister_Result" />
+  </message>
   <message name="ResetPassword">
     <part name="parameters" element="tns:ResetPassword" />
   </message>
@@ -4602,6 +4678,18 @@
     <operation name="AddRiskResponse">
       <input name="AddRiskResponse" message="tns:AddRiskResponse" />
       <output name="AddRiskResponse_Result" message="tns:AddRiskResponse_Result" />
+    </operation>
+    <operation name="FnAddRiskRegister">
+      <input name="FnAddRiskRegister" message="tns:FnAddRiskRegister" />
+      <output name="FnAddRiskRegister_Result" message="tns:FnAddRiskRegister_Result" />
+    </operation>
+    <operation name="CreateRiskRegisterDivision">
+      <input name="CreateRiskRegisterDivision" message="tns:CreateRiskRegisterDivision" />
+      <output name="CreateRiskRegisterDivision_Result" message="tns:CreateRiskRegisterDivision_Result" />
+    </operation>
+    <operation name="PostDivisionRegister">
+      <input name="PostDivisionRegister" message="tns:PostDivisionRegister" />
+      <output name="PostDivisionRegister_Result" message="tns:PostDivisionRegister_Result" />
     </operation>
     <operation name="ResetPassword">
       <input name="ResetPassword" message="tns:ResetPassword" />
@@ -5682,6 +5770,33 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="AddRiskResponse_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnAddRiskRegister">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:FnAddRiskRegister" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnAddRiskRegister">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnAddRiskRegister_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateRiskRegisterDivision">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:CreateRiskRegisterDivision" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateRiskRegisterDivision">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateRiskRegisterDivision_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="PostDivisionRegister">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:PostDivisionRegister" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PostDivisionRegister">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PostDivisionRegister_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
