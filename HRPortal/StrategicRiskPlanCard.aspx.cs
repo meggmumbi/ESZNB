@@ -204,5 +204,37 @@ namespace HRPortal
                 }
             }
         }
+        protected void deleteLine_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int tLineNo = 0;
+                Boolean hasError = false;
+                try
+                {
+                    tLineNo = Convert.ToInt32(lineNo.Text.Trim());
+                }
+                catch (Exception)
+                {
+                    hasError = true;
+                }
+                if (hasError)
+                {
+                    teamFeedback.InnerHtml = "<div class='alert alert-danger'>We encountered an error while processing your request. Please try again later <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {                   
+                    String requisitionNo = Request.QueryString["DocumentNo"];
+                    String status = Config.ObjNav.DeleteRisk(requisitionNo, tLineNo);
+                    String[] info = status.Split('*');
+                    teamFeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+            }
+            catch (Exception t)
+            {
+                teamFeedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+
+        }
     }
 }

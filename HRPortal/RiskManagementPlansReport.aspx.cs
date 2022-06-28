@@ -22,9 +22,9 @@ namespace HRPortal
                 {
                     feedback.InnerHtml = "";
                     string DocumentNo = Request.QueryString["DocumentNo"];
-                    string DocType = Request.QueryString["DocType"];
-                    int tDocType = Convert.ToInt32(DocType);
-                    String status = Config.ObjNav.GenerateManagementPlanSummery(tDocType, DocumentNo);
+                   
+                   
+                    String status = Config.ObjNav.GenerateManagementPlanSummery(DocumentNo);
                     String[] info = status.Split('*');
                     if (info[0] == "success")
                     {
@@ -38,7 +38,7 @@ namespace HRPortal
                 }
                 catch (Exception t)
                 {
-                    feedback.InnerHtml = "<div class='alert alert-danger'>Your performance contract report could not be generated" + t.Message + "</div>";
+                    feedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + "</div>";
                 }
             }
         }

@@ -468,6 +468,20 @@
                                                         <li><a href="DepartmentalRiskManagementPlans.aspx">Departmental Risk Register</a></li>
                                                     </ul>
                                                 </li>
+                                                             <li class="treeview">
+                                                    <a href="#">
+                                                        <i class="fa fa-list"></i>
+                                                        <span>New Risk Register</span>
+                                                        <span class="pull-right-container">
+                                                            <i class="fa fa-angle-left pull-right"></i>
+                                                        </span>
+                                                    </a>
+                                                    <ul class="treeview-menu">
+                                                        <li><a href="DivisionRiskApp.aspx">New Risk Register</a></li>
+                                                      
+                                                       
+                                                    </ul>
+                                                </li>
                                                  <li class="treeview">
                                                     <a href="#">
                                                         <i class="fa fa-list"></i>
@@ -477,9 +491,9 @@
                                                         </span>
                                                     </a>
                                                     <ul class="treeview-menu">
-                                                     
+                                                      
                                                         <li><a href="RiskStatusReport.aspx">Status Report</a></li>
-                                                      <%--  <li><a href="DepartmentalRiskManagementPlans.aspx">Departmental Risk Register</a></li>--%>
+                                                       
                                                     </ul>
                                                 </li>
                                                 <li class="treeview">

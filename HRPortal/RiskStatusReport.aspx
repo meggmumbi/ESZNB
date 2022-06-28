@@ -201,8 +201,7 @@
 
     <div class="panel-footer">        
       
-        <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" ID="back" OnClick="back_Click" />
-       
+        <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" ID="back" OnClick="back_Click" />       
         <asp:Button runat="server" CssClass="btn btn-success pull-right" Text="Submit" OnClick="post_Click" id="post"/>
         <div class="clearfix"></div>
     </div>

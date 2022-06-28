@@ -292,7 +292,7 @@ namespace HRPortal
 
             if (error == true)
             {
-                generalFeedback.InnerHtml = "<div class='alert alert-danger'>" + message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                linesFeedback.InnerHtml = "<div class='alert alert-danger'>" + message + "<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
             }
 
             else
@@ -307,8 +307,10 @@ namespace HRPortal
                     String[] info = status.Split('*');
                     if (info[0] == "success")
                     {
+                        linesFeedback.InnerHtml = "<div class='alert alert-success'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                        ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS", "setTimeout(function() { window.location.replace('DepartmentalRiskManagementPlans.aspx') }, 5000);", true);
 
-                        
+
                     }
                     else
                     {
@@ -328,6 +330,50 @@ namespace HRPortal
         {
             string TapplicationNo = Convert.ToString(Request.QueryString["requisitionNo"]);
             Response.Redirect("DivisionRiskApp.aspx?step=1&&requisitionNo=" + TapplicationNo);
+        }
+
+        protected void yearCode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var nav = new Config().ReturnNav();
+            string yrCode = yearCode.SelectedValue.Trim();
+            var dates = nav.FinancialYearCode.Where(r => r.Code == yrCode);
+            foreach(var date in dates)
+            {
+                startDate.Text = Convert.ToString(date.Starting_Date);
+                endDate.Text = Convert.ToString(date.Ending_Date);
+            }
+        }
+        protected void deleteLine_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int tLineNo = 0;
+                Boolean hasError = false;
+                try
+                {
+                    tLineNo = Convert.ToInt32(lineNo.Text.Trim());
+                }
+                catch (Exception)
+                {
+                    hasError = true;
+                }
+                if (hasError)
+                {
+                    linesFeedback.InnerHtml = "<div class='alert alert-danger'>We encountered an error while processing your request. Please try again later <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+                else
+                {
+                    String requisitionNo = Request.QueryString["requisitionNo"];
+                    String status = Config.ObjNav.DeleteRisk(requisitionNo, tLineNo);
+                    String[] info = status.Split('*');
+                    linesFeedback.InnerHtml = "<div class='alert alert-" + info[0] + "'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+                }
+            }
+            catch (Exception t)
+            {
+                linesFeedback.InnerHtml = "<div class='alert alert-danger'>" + t.Message + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
+            }
+
         }
     }
 }

@@ -169,6 +169,12 @@ namespace HRPortal.HRPortal {
         
         private System.Threading.SendOrPostCallback PostDivisionRegisterOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FnAddRiskOwnershipOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FnAddRiskMitigationOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteRiskOperationCompleted;
+        
         private System.Threading.SendOrPostCallback ResetPasswordOperationCompleted;
         
         private System.Threading.SendOrPostCallback LeaveApplicationOperationCompleted;
@@ -654,6 +660,15 @@ namespace HRPortal.HRPortal {
         
         /// <remarks/>
         public event PostDivisionRegisterCompletedEventHandler PostDivisionRegisterCompleted;
+        
+        /// <remarks/>
+        public event FnAddRiskOwnershipCompletedEventHandler FnAddRiskOwnershipCompleted;
+        
+        /// <remarks/>
+        public event FnAddRiskMitigationCompletedEventHandler FnAddRiskMitigationCompleted;
+        
+        /// <remarks/>
+        public event DeleteRiskCompletedEventHandler DeleteRiskCompleted;
         
         /// <remarks/>
         public event ResetPasswordCompletedEventHandler ResetPasswordCompleted;
@@ -2937,25 +2952,23 @@ namespace HRPortal.HRPortal {
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:GenerateManagementPlanSummery", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="GenerateManagementPlanSummery_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
-        public string GenerateManagementPlanSummery(int documentType, string documentNo) {
+        public string GenerateManagementPlanSummery(string documentNo) {
             object[] results = this.Invoke("GenerateManagementPlanSummery", new object[] {
-                        documentType,
                         documentNo});
             return ((string)(results[0]));
         }
         
         /// <remarks/>
-        public void GenerateManagementPlanSummeryAsync(int documentType, string documentNo) {
-            this.GenerateManagementPlanSummeryAsync(documentType, documentNo, null);
+        public void GenerateManagementPlanSummeryAsync(string documentNo) {
+            this.GenerateManagementPlanSummeryAsync(documentNo, null);
         }
         
         /// <remarks/>
-        public void GenerateManagementPlanSummeryAsync(int documentType, string documentNo, object userState) {
+        public void GenerateManagementPlanSummeryAsync(string documentNo, object userState) {
             if ((this.GenerateManagementPlanSummeryOperationCompleted == null)) {
                 this.GenerateManagementPlanSummeryOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGenerateManagementPlanSummeryOperationCompleted);
             }
             this.InvokeAsync("GenerateManagementPlanSummery", new object[] {
-                        documentType,
                         documentNo}, this.GenerateManagementPlanSummeryOperationCompleted, userState);
         }
         
@@ -3417,6 +3430,114 @@ namespace HRPortal.HRPortal {
             if ((this.PostDivisionRegisterCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.PostDivisionRegisterCompleted(this, new PostDivisionRegisterCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:FnAddRiskOwnership", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="FnAddRiskOwnership_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnAddRiskOwnership(string applicationNo, int riskNo, string responsibilityCenter, string officer) {
+            object[] results = this.Invoke("FnAddRiskOwnership", new object[] {
+                        applicationNo,
+                        riskNo,
+                        responsibilityCenter,
+                        officer});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnAddRiskOwnershipAsync(string applicationNo, int riskNo, string responsibilityCenter, string officer) {
+            this.FnAddRiskOwnershipAsync(applicationNo, riskNo, responsibilityCenter, officer, null);
+        }
+        
+        /// <remarks/>
+        public void FnAddRiskOwnershipAsync(string applicationNo, int riskNo, string responsibilityCenter, string officer, object userState) {
+            if ((this.FnAddRiskOwnershipOperationCompleted == null)) {
+                this.FnAddRiskOwnershipOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnAddRiskOwnershipOperationCompleted);
+            }
+            this.InvokeAsync("FnAddRiskOwnership", new object[] {
+                        applicationNo,
+                        riskNo,
+                        responsibilityCenter,
+                        officer}, this.FnAddRiskOwnershipOperationCompleted, userState);
+        }
+        
+        private void OnFnAddRiskOwnershipOperationCompleted(object arg) {
+            if ((this.FnAddRiskOwnershipCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnAddRiskOwnershipCompleted(this, new FnAddRiskOwnershipCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:FnAddRiskMitigation", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="FnAddRiskMitigation_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string FnAddRiskMitigation(string applicationNo, int riskNo, string mitigationStrat, string actionTaken, string officer, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dueDate) {
+            object[] results = this.Invoke("FnAddRiskMitigation", new object[] {
+                        applicationNo,
+                        riskNo,
+                        mitigationStrat,
+                        actionTaken,
+                        officer,
+                        dueDate});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FnAddRiskMitigationAsync(string applicationNo, int riskNo, string mitigationStrat, string actionTaken, string officer, System.DateTime dueDate) {
+            this.FnAddRiskMitigationAsync(applicationNo, riskNo, mitigationStrat, actionTaken, officer, dueDate, null);
+        }
+        
+        /// <remarks/>
+        public void FnAddRiskMitigationAsync(string applicationNo, int riskNo, string mitigationStrat, string actionTaken, string officer, System.DateTime dueDate, object userState) {
+            if ((this.FnAddRiskMitigationOperationCompleted == null)) {
+                this.FnAddRiskMitigationOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFnAddRiskMitigationOperationCompleted);
+            }
+            this.InvokeAsync("FnAddRiskMitigation", new object[] {
+                        applicationNo,
+                        riskNo,
+                        mitigationStrat,
+                        actionTaken,
+                        officer,
+                        dueDate}, this.FnAddRiskMitigationOperationCompleted, userState);
+        }
+        
+        private void OnFnAddRiskMitigationOperationCompleted(object arg) {
+            if ((this.FnAddRiskMitigationCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FnAddRiskMitigationCompleted(this, new FnAddRiskMitigationCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:DeleteRisk", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="DeleteRisk_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string DeleteRisk(string requisitionNo, int lineNo) {
+            object[] results = this.Invoke("DeleteRisk", new object[] {
+                        requisitionNo,
+                        lineNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DeleteRiskAsync(string requisitionNo, int lineNo) {
+            this.DeleteRiskAsync(requisitionNo, lineNo, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteRiskAsync(string requisitionNo, int lineNo, object userState) {
+            if ((this.DeleteRiskOperationCompleted == null)) {
+                this.DeleteRiskOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteRiskOperationCompleted);
+            }
+            this.InvokeAsync("DeleteRisk", new object[] {
+                        requisitionNo,
+                        lineNo}, this.DeleteRiskOperationCompleted, userState);
+        }
+        
+        private void OnDeleteRiskOperationCompleted(object arg) {
+            if ((this.DeleteRiskCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteRiskCompleted(this, new DeleteRiskCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -10139,6 +10260,84 @@ namespace HRPortal.HRPortal {
         private object[] results;
         
         internal PostDivisionRegisterCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnAddRiskOwnershipCompletedEventHandler(object sender, FnAddRiskOwnershipCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnAddRiskOwnershipCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnAddRiskOwnershipCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FnAddRiskMitigationCompletedEventHandler(object sender, FnAddRiskMitigationCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FnAddRiskMitigationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FnAddRiskMitigationCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void DeleteRiskCompletedEventHandler(object sender, DeleteRiskCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DeleteRiskCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DeleteRiskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

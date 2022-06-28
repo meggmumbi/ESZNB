@@ -4947,6 +4947,7 @@
         <Property Name="Actual_Financial_Impact_LCY" Type="Edm.Decimal" />
         <Property Name="Actual_Delay_Impact_Days" Type="Edm.Int32" />
         <Property Name="New_Risk_Voucher_ID" Type="Edm.String" />
+        <Property Name="Strategic_Pillar_Description" Type="Edm.String" />
       </EntityType>
       <EntityType Name="managementPlans">
         <Key>

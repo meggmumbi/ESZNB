@@ -82,7 +82,8 @@
          <div runat="server" id="regResponse" visible="false">
               <label runat="server" class="btn btn-success" onclick="RiskResponse('<%=DocumentNo%>');" ><i class="fa fa-arrow-right"></i>Add New Risk</label>
         </div>
-        <div class="panel-body">
+        <div class="panel-body"><
+            <div class="table-responsive">
             <table id="example1" class="table table-bordered table-striped datatable">
                 <thead>
                     <tr>
@@ -94,6 +95,7 @@
                         <th>Risk Impact Rating</th>                      
                         <th>Overal Risk Rating</th>
                         <th>Risk Heat Zone</th>
+                        <th></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -109,20 +111,23 @@
                     <tr>
                         <td><%=risk.Risk_Category %></td>
                         <td><%=risk.Risk_Title %></td>
-                        <td><%=risk.Risk_Source_ID %></td>
+                        <td><%=risk.Strategic_Pillar_Description %></td>
                         <td><% =Convert.ToDateTime(risk.Date_Raised).ToString("dd/MM/yyyy")%></td>
                          <td><%=risk.Risk_Likelihood_Rating %></td>
                          <td><%=risk.Risk_Impact_Rating %></td>
                          <td><%=risk.Overal_Risk_Rating %></td>
                         <td><%=risk.Risk_Heat_Zone %></td>
-                           <td><a href="RiskOwnership.aspx?DocumentNo=<%=risk.Document_No%>&&DocumentType=<%=risk.Document_Type %>&&RiskId=<%=risk.Risk_ID %>" class="btn btn-success"><i class="fa fa-eye"></i>View Ownership</a></td>
-                         <td><a href="RiskResponseLine.aspx?DocumentNo=<%=risk.Document_No%>&&DocumentType=<%=risk.Document_Type %>&&RiskId=<%=risk.Risk_ID %>" class="btn btn-success"><i class="fa fa-eye"></i>View Mitigation</a></td>
+                         <td><a href="RiskOwnership.aspx?DocumentNo=<%=risk.Document_No%>&&DocumentType=<%=risk.Document_Type %>&&RiskId=<%=risk.Risk_ID %>" class="btn btn-success"><i class="fa fa-eye"></i>View Ownership</a></td>
+                        <td><a href="RiskResponseLine.aspx?DocumentNo=<%=risk.Document_No%>&&DocumentType=<%=risk.Document_Type %>&&RiskId=<%=risk.Risk_ID %>" class="btn btn-success"><i class="fa fa-eye"></i>View Response Action</a></td>
+                         <td>
+                            <label class="btn btn-danger" onclick="removeLine('<% =risk.Risk_Title  %>','<%=risk.Risk_ID %>');"><i class="fa fa-trash"></i>Delete</label></td>
                     </tr>
                     <%
                         }
                     %>
                 </tbody>
             </table>
+                </div>
         </div>
     </div>
          <script>
@@ -209,6 +214,35 @@
         </div>
                    </ContentTemplate>
         </asp:UpdatePanel>
+    </div>
+        <script>
+        function removeLine(itemName, lineNo) {
+            document.getElementById("itemName").innerText = itemName;
+            document.getElementById("ContentPlaceHolder1_lineNo").value = lineNo;
+            $("#removeLineModal").modal();
+        }
+    </script>
+    <div id="removeLineModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Confirm Remove Risk</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to remove the Risk <strong id="itemName"></strong>from the Risks list?</p>
+                    <asp:TextBox runat="server" ID="lineNo" type="hidden" />
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <asp:Button runat="server" CssClass="btn btn-danger" Text="Delete Risk" OnClick="deleteLine_Click" />
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </asp:Content>

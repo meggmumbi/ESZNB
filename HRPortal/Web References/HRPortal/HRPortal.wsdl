@@ -900,7 +900,6 @@
       <element name="GenerateManagementPlanSummery">
         <complexType>
           <sequence>
-            <element minOccurs="1" maxOccurs="1" name="documentType" type="int" />
             <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
           </sequence>
         </complexType>
@@ -1121,6 +1120,57 @@
         </complexType>
       </element>
       <element name="PostDivisionRegister_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAddRiskOwnership">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="riskNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilityCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="officer" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAddRiskOwnership_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAddRiskMitigation">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="riskNo" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="mitigationStrat" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="actionTaken" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="officer" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dueDate" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnAddRiskMitigation_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DeleteRisk">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="requisitionNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DeleteRisk_Result">
         <complexType>
           <sequence>
             <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
@@ -3696,6 +3746,24 @@
   <message name="PostDivisionRegister_Result">
     <part name="parameters" element="tns:PostDivisionRegister_Result" />
   </message>
+  <message name="FnAddRiskOwnership">
+    <part name="parameters" element="tns:FnAddRiskOwnership" />
+  </message>
+  <message name="FnAddRiskOwnership_Result">
+    <part name="parameters" element="tns:FnAddRiskOwnership_Result" />
+  </message>
+  <message name="FnAddRiskMitigation">
+    <part name="parameters" element="tns:FnAddRiskMitigation" />
+  </message>
+  <message name="FnAddRiskMitigation_Result">
+    <part name="parameters" element="tns:FnAddRiskMitigation_Result" />
+  </message>
+  <message name="DeleteRisk">
+    <part name="parameters" element="tns:DeleteRisk" />
+  </message>
+  <message name="DeleteRisk_Result">
+    <part name="parameters" element="tns:DeleteRisk_Result" />
+  </message>
   <message name="ResetPassword">
     <part name="parameters" element="tns:ResetPassword" />
   </message>
@@ -4690,6 +4758,18 @@
     <operation name="PostDivisionRegister">
       <input name="PostDivisionRegister" message="tns:PostDivisionRegister" />
       <output name="PostDivisionRegister_Result" message="tns:PostDivisionRegister_Result" />
+    </operation>
+    <operation name="FnAddRiskOwnership">
+      <input name="FnAddRiskOwnership" message="tns:FnAddRiskOwnership" />
+      <output name="FnAddRiskOwnership_Result" message="tns:FnAddRiskOwnership_Result" />
+    </operation>
+    <operation name="FnAddRiskMitigation">
+      <input name="FnAddRiskMitigation" message="tns:FnAddRiskMitigation" />
+      <output name="FnAddRiskMitigation_Result" message="tns:FnAddRiskMitigation_Result" />
+    </operation>
+    <operation name="DeleteRisk">
+      <input name="DeleteRisk" message="tns:DeleteRisk" />
+      <output name="DeleteRisk_Result" message="tns:DeleteRisk_Result" />
     </operation>
     <operation name="ResetPassword">
       <input name="ResetPassword" message="tns:ResetPassword" />
@@ -5797,6 +5877,33 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="PostDivisionRegister_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnAddRiskOwnership">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:FnAddRiskOwnership" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnAddRiskOwnership">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnAddRiskOwnership_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnAddRiskMitigation">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:FnAddRiskMitigation" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnAddRiskMitigation">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnAddRiskMitigation_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DeleteRisk">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:DeleteRisk" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DeleteRisk">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DeleteRisk_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>
