@@ -6840,6 +6840,38 @@
         <Property Name="No_of_New_Risk_Vouchers" Type="Edm.Int32" />
         <Property Name="No_of_Risk_Status_Reports" Type="Edm.Int32" />
       </EntityType>
+      <EntityType Name="RiskMEHeader">
+        <Key>
+          <PropertyRef Name="Document_No" />
+          <PropertyRef Name="Document_Type" />
+        </Key>
+        <Property Name="Document_Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_No" Type="Edm.String" Nullable="false" />
+        <Property Name="Document_Date" Type="Edm.DateTime" />
+        <Property Name="Risk_Register_Type" Type="Edm.String" />
+        <Property Name="Risk_Management_Plan_ID" Type="Edm.String" />
+        <Property Name="Description" Type="Edm.String" />
+        <Property Name="Project_ID" Type="Edm.String" />
+        <Property Name="Directorate_ID" Type="Edm.String" />
+        <Property Name="Department_ID" Type="Edm.String" />
+        <Property Name="Responsible_Officer_No" Type="Edm.String" />
+        <Property Name="Risk_Likelihood_Rate_Scale_ID" Type="Edm.String" />
+        <Property Name="Risk_Impact_Rating_Scale_ID" Type="Edm.String" />
+        <Property Name="Overall_Risk_Rating_Scale_ID" Type="Edm.String" />
+        <Property Name="Risk_Appetite_Rating_Scale_ID" Type="Edm.String" />
+        <Property Name="Report_Start_Date" Type="Edm.DateTime" />
+        <Property Name="Report_End_Date" Type="Edm.DateTime" />
+        <Property Name="Posted" Type="Edm.Boolean" />
+        <Property Name="Status" Type="Edm.String" />
+        <Property Name="Created_By" Type="Edm.String" />
+        <Property Name="Created_DateTime" Type="Edm.DateTime" />
+        <Property Name="Posting_Date" Type="Edm.DateTime" />
+        <Property Name="Work_Execution_Plan_ID" Type="Edm.String" />
+        <Property Name="Corporate_Strategic_Plan_ID" Type="Edm.String" />
+        <Property Name="Region_ID" Type="Edm.String" />
+        <Property Name="No_Series" Type="Edm.String" />
+        <Property Name="DocumentCreator" Type="Edm.String" />
+      </EntityType>
       <EntityType Name="RiskRatingScaleLine">
         <Key>
           <PropertyRef Name="Actual_Rating" />
@@ -8911,6 +8943,7 @@
         <NavigationProperty Name="RiskCategoryTrig" Relationship="NAV.Company_RiskCategoryTrig" ToRole="RiskCategoryTrig" FromRole="Company" />
         <NavigationProperty Name="RiskIdentificationMethods" Relationship="NAV.Company_RiskIdentificationMethods" ToRole="RiskIdentificationMethods" FromRole="Company" />
         <NavigationProperty Name="RiskManagement" Relationship="NAV.Company_RiskManagement" ToRole="RiskManagement" FromRole="Company" />
+        <NavigationProperty Name="RiskMEHeader" Relationship="NAV.Company_RiskMEHeader" ToRole="RiskMEHeader" FromRole="Company" />
         <NavigationProperty Name="RiskRatingScaleLine" Relationship="NAV.Company_RiskRatingScaleLine" ToRole="RiskRatingScaleLine" FromRole="Company" />
         <NavigationProperty Name="RiskResponceStrategy" Relationship="NAV.Company_RiskResponceStrategy" ToRole="RiskResponceStrategy" FromRole="Company" />
         <NavigationProperty Name="SafetyWorkGroup" Relationship="NAV.Company_SafetyWorkGroup" ToRole="SafetyWorkGroup" FromRole="Company" />
@@ -10171,6 +10204,10 @@
         <End Type="NAV.RiskManagement" Role="RiskManagement" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
       </Association>
+      <Association Name="Company_RiskMEHeader">
+        <End Type="NAV.RiskMEHeader" Role="RiskMEHeader" Multiplicity="*" />
+        <End Type="NAV.Company" Role="Company" Multiplicity="*" />
+      </Association>
       <Association Name="Company_RiskRatingScaleLine">
         <End Type="NAV.RiskRatingScaleLine" Role="RiskRatingScaleLine" Multiplicity="*" />
         <End Type="NAV.Company" Role="Company" Multiplicity="*" />
@@ -10680,6 +10717,7 @@
         <EntitySet Name="RiskCategoryTrig" EntityType="NAV.RiskCategoryTrig" />
         <EntitySet Name="RiskIdentificationMethods" EntityType="NAV.RiskIdentificationMethods" />
         <EntitySet Name="RiskManagement" EntityType="NAV.RiskManagement" />
+        <EntitySet Name="RiskMEHeader" EntityType="NAV.RiskMEHeader" />
         <EntitySet Name="RiskRatingScaleLine" EntityType="NAV.RiskRatingScaleLine" />
         <EntitySet Name="RiskResponceStrategy" EntityType="NAV.RiskResponceStrategy" />
         <EntitySet Name="SafetyWorkGroup" EntityType="NAV.SafetyWorkGroup" />
@@ -11939,6 +11977,10 @@
         <AssociationSet Name="Company_RiskManagement_RiskManagement" Association="NAV.Company_RiskManagement">
           <End Role="Company" EntitySet="Company" />
           <End Role="RiskManagement" EntitySet="RiskManagement" />
+        </AssociationSet>
+        <AssociationSet Name="Company_RiskMEHeader_RiskMEHeader" Association="NAV.Company_RiskMEHeader">
+          <End Role="Company" EntitySet="Company" />
+          <End Role="RiskMEHeader" EntitySet="RiskMEHeader" />
         </AssociationSet>
         <AssociationSet Name="Company_RiskRatingScaleLine_RiskRatingScaleLine" Association="NAV.Company_RiskRatingScaleLine">
           <End Role="Company" EntitySet="Company" />

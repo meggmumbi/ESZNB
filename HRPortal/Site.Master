@@ -493,6 +493,9 @@
                                                     <ul class="treeview-menu">
                                                       
                                                         <li><a href="RiskStatusReport.aspx">Status Report</a></li>
+                                                          <li><a href="PostedPeriodicRisk.aspx?status=open">Open Periodic Status Report</a></li>
+                                                          <li><a href="PostedPeriodicRisk.aspx?status=approved">Posted Periodic Status Report</a></li>
+                                                        
                                                        
                                                     </ul>
                                                 </li>

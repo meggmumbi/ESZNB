@@ -198,12 +198,14 @@
     <Content Include="OSHSummery.aspx" />
     <Content Include="packages.config" />
     <Content Include="PerformanceLog.aspx" />
+    <Content Include="PeriodicStatusDetails.aspx" />
     <Content Include="PLogReport.aspx" />
     <Content Include="PostedClaims.aspx" />
     <Content Include="PostedImprestMemo.aspx" />
     <Content Include="postedImprestMemoApproverEntries.aspx" />
     <Content Include="postedImprestSurrendersEntries.aspx" />
     <Content Include="PostedMemo.aspx" />
+    <Content Include="PostedPeriodicRisk.aspx" />
     <Content Include="postedstaffclaim.aspx" />
     <Content Include="PostedSurrender.aspx" />
     <Content Include="PurchaseRequisition2.aspx" />
@@ -838,6 +840,13 @@
       <DependentUpon>PerformanceLog.aspx</DependentUpon>
     </Compile>
     <Compile Include="PerformanceLogs.cs" />
+    <Compile Include="PeriodicStatusDetails.aspx.cs">
+      <DependentUpon>PeriodicStatusDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PeriodicStatusDetails.aspx.designer.cs">
+      <DependentUpon>PeriodicStatusDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PLogReport.aspx.cs">
       <DependentUpon>PLogReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -879,6 +888,13 @@
     </Compile>
     <Compile Include="PostedMemo.aspx.designer.cs">
       <DependentUpon>PostedMemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostedPeriodicRisk.aspx.cs">
+      <DependentUpon>PostedPeriodicRisk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostedPeriodicRisk.aspx.designer.cs">
+      <DependentUpon>PostedPeriodicRisk.aspx</DependentUpon>
     </Compile>
     <Compile Include="postedstaffclaim.aspx.cs">
       <DependentUpon>postedstaffclaim.aspx</DependentUpon>

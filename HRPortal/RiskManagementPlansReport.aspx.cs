@@ -28,7 +28,7 @@ namespace HRPortal
                     String[] info = status.Split('*');
                     if (info[0] == "success")
                     {
-                        payslipFrame.Attributes.Add("src", ResolveUrl(info[2]));
+                        payslipFrame.Attributes.Add("src", ResolveUrl(info[2 ]));
                     }
                     else
                     {
