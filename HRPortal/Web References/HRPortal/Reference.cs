@@ -175,6 +175,18 @@ namespace HRPortal.HRPortal {
         
         private System.Threading.SendOrPostCallback DeleteRiskOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GenerateStatusPeriodOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateNewIncodentLogOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CreateIncidentSummeryOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback DeleteIncidentLineOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback PostIncidentLogsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GenerateIncidentLogOperationCompleted;
+        
         private System.Threading.SendOrPostCallback ResetPasswordOperationCompleted;
         
         private System.Threading.SendOrPostCallback LeaveApplicationOperationCompleted;
@@ -669,6 +681,24 @@ namespace HRPortal.HRPortal {
         
         /// <remarks/>
         public event DeleteRiskCompletedEventHandler DeleteRiskCompleted;
+        
+        /// <remarks/>
+        public event GenerateStatusPeriodCompletedEventHandler GenerateStatusPeriodCompleted;
+        
+        /// <remarks/>
+        public event CreateNewIncodentLogCompletedEventHandler CreateNewIncodentLogCompleted;
+        
+        /// <remarks/>
+        public event CreateIncidentSummeryCompletedEventHandler CreateIncidentSummeryCompleted;
+        
+        /// <remarks/>
+        public event DeleteIncidentLineCompletedEventHandler DeleteIncidentLineCompleted;
+        
+        /// <remarks/>
+        public event PostIncidentLogsCompletedEventHandler PostIncidentLogsCompleted;
+        
+        /// <remarks/>
+        public event GenerateIncidentLogCompletedEventHandler GenerateIncidentLogCompleted;
         
         /// <remarks/>
         public event ResetPasswordCompletedEventHandler ResetPasswordCompleted;
@@ -3538,6 +3568,299 @@ namespace HRPortal.HRPortal {
             if ((this.DeleteRiskCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.DeleteRiskCompleted(this, new DeleteRiskCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:GenerateStatusPeriod", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="GenerateStatusPeriod_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GenerateStatusPeriod(string documentNo) {
+            object[] results = this.Invoke("GenerateStatusPeriod", new object[] {
+                        documentNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GenerateStatusPeriodAsync(string documentNo) {
+            this.GenerateStatusPeriodAsync(documentNo, null);
+        }
+        
+        /// <remarks/>
+        public void GenerateStatusPeriodAsync(string documentNo, object userState) {
+            if ((this.GenerateStatusPeriodOperationCompleted == null)) {
+                this.GenerateStatusPeriodOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGenerateStatusPeriodOperationCompleted);
+            }
+            this.InvokeAsync("GenerateStatusPeriod", new object[] {
+                        documentNo}, this.GenerateStatusPeriodOperationCompleted, userState);
+        }
+        
+        private void OnGenerateStatusPeriodOperationCompleted(object arg) {
+            if ((this.GenerateStatusPeriodCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GenerateStatusPeriodCompleted(this, new GenerateStatusPeriodCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:CreateNewIncodentLog", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="CreateNewIncodentLog_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string CreateNewIncodentLog(
+                    string empNo, 
+                    string applicationNo, 
+                    int riskType, 
+                    string managementplanId, 
+                    int riskId, 
+                    string riskDecsription, 
+                    string riskCategory, 
+                    string severityLevel, 
+                    [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime dateIncident, 
+                    [System.Xml.Serialization.XmlElementAttribute(DataType="time")] System.DateTime time, 
+                    int occurrencetype, 
+                    string incidentLocations, 
+                    int primeTrigger, 
+                    string rootCause, 
+                    int personcategory, 
+                    string reportedBy, 
+                    string responsibilityCenter, 
+                    string escalationOfficer) {
+            object[] results = this.Invoke("CreateNewIncodentLog", new object[] {
+                        empNo,
+                        applicationNo,
+                        riskType,
+                        managementplanId,
+                        riskId,
+                        riskDecsription,
+                        riskCategory,
+                        severityLevel,
+                        dateIncident,
+                        time,
+                        occurrencetype,
+                        incidentLocations,
+                        primeTrigger,
+                        rootCause,
+                        personcategory,
+                        reportedBy,
+                        responsibilityCenter,
+                        escalationOfficer});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateNewIncodentLogAsync(
+                    string empNo, 
+                    string applicationNo, 
+                    int riskType, 
+                    string managementplanId, 
+                    int riskId, 
+                    string riskDecsription, 
+                    string riskCategory, 
+                    string severityLevel, 
+                    System.DateTime dateIncident, 
+                    System.DateTime time, 
+                    int occurrencetype, 
+                    string incidentLocations, 
+                    int primeTrigger, 
+                    string rootCause, 
+                    int personcategory, 
+                    string reportedBy, 
+                    string responsibilityCenter, 
+                    string escalationOfficer) {
+            this.CreateNewIncodentLogAsync(empNo, applicationNo, riskType, managementplanId, riskId, riskDecsription, riskCategory, severityLevel, dateIncident, time, occurrencetype, incidentLocations, primeTrigger, rootCause, personcategory, reportedBy, responsibilityCenter, escalationOfficer, null);
+        }
+        
+        /// <remarks/>
+        public void CreateNewIncodentLogAsync(
+                    string empNo, 
+                    string applicationNo, 
+                    int riskType, 
+                    string managementplanId, 
+                    int riskId, 
+                    string riskDecsription, 
+                    string riskCategory, 
+                    string severityLevel, 
+                    System.DateTime dateIncident, 
+                    System.DateTime time, 
+                    int occurrencetype, 
+                    string incidentLocations, 
+                    int primeTrigger, 
+                    string rootCause, 
+                    int personcategory, 
+                    string reportedBy, 
+                    string responsibilityCenter, 
+                    string escalationOfficer, 
+                    object userState) {
+            if ((this.CreateNewIncodentLogOperationCompleted == null)) {
+                this.CreateNewIncodentLogOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateNewIncodentLogOperationCompleted);
+            }
+            this.InvokeAsync("CreateNewIncodentLog", new object[] {
+                        empNo,
+                        applicationNo,
+                        riskType,
+                        managementplanId,
+                        riskId,
+                        riskDecsription,
+                        riskCategory,
+                        severityLevel,
+                        dateIncident,
+                        time,
+                        occurrencetype,
+                        incidentLocations,
+                        primeTrigger,
+                        rootCause,
+                        personcategory,
+                        reportedBy,
+                        responsibilityCenter,
+                        escalationOfficer}, this.CreateNewIncodentLogOperationCompleted, userState);
+        }
+        
+        private void OnCreateNewIncodentLogOperationCompleted(object arg) {
+            if ((this.CreateNewIncodentLogCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateNewIncodentLogCompleted(this, new CreateNewIncodentLogCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:CreateIncidentSummery", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="CreateIncidentSummery_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string CreateIncidentSummery(string employeeNo, string applicationNo, int impactType, string description, int personReporting, string officer, string contactDetails, string additionalComments, string policeReport, [System.Xml.Serialization.XmlElementAttribute(DataType="date")] System.DateTime reportDate, string policeStation, string reportingOfficer) {
+            object[] results = this.Invoke("CreateIncidentSummery", new object[] {
+                        employeeNo,
+                        applicationNo,
+                        impactType,
+                        description,
+                        personReporting,
+                        officer,
+                        contactDetails,
+                        additionalComments,
+                        policeReport,
+                        reportDate,
+                        policeStation,
+                        reportingOfficer});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CreateIncidentSummeryAsync(string employeeNo, string applicationNo, int impactType, string description, int personReporting, string officer, string contactDetails, string additionalComments, string policeReport, System.DateTime reportDate, string policeStation, string reportingOfficer) {
+            this.CreateIncidentSummeryAsync(employeeNo, applicationNo, impactType, description, personReporting, officer, contactDetails, additionalComments, policeReport, reportDate, policeStation, reportingOfficer, null);
+        }
+        
+        /// <remarks/>
+        public void CreateIncidentSummeryAsync(string employeeNo, string applicationNo, int impactType, string description, int personReporting, string officer, string contactDetails, string additionalComments, string policeReport, System.DateTime reportDate, string policeStation, string reportingOfficer, object userState) {
+            if ((this.CreateIncidentSummeryOperationCompleted == null)) {
+                this.CreateIncidentSummeryOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCreateIncidentSummeryOperationCompleted);
+            }
+            this.InvokeAsync("CreateIncidentSummery", new object[] {
+                        employeeNo,
+                        applicationNo,
+                        impactType,
+                        description,
+                        personReporting,
+                        officer,
+                        contactDetails,
+                        additionalComments,
+                        policeReport,
+                        reportDate,
+                        policeStation,
+                        reportingOfficer}, this.CreateIncidentSummeryOperationCompleted, userState);
+        }
+        
+        private void OnCreateIncidentSummeryOperationCompleted(object arg) {
+            if ((this.CreateIncidentSummeryCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CreateIncidentSummeryCompleted(this, new CreateIncidentSummeryCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:DeleteIncidentLine", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="DeleteIncidentLine_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string DeleteIncidentLine(string requisitionNo, int lineNo) {
+            object[] results = this.Invoke("DeleteIncidentLine", new object[] {
+                        requisitionNo,
+                        lineNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void DeleteIncidentLineAsync(string requisitionNo, int lineNo) {
+            this.DeleteIncidentLineAsync(requisitionNo, lineNo, null);
+        }
+        
+        /// <remarks/>
+        public void DeleteIncidentLineAsync(string requisitionNo, int lineNo, object userState) {
+            if ((this.DeleteIncidentLineOperationCompleted == null)) {
+                this.DeleteIncidentLineOperationCompleted = new System.Threading.SendOrPostCallback(this.OnDeleteIncidentLineOperationCompleted);
+            }
+            this.InvokeAsync("DeleteIncidentLine", new object[] {
+                        requisitionNo,
+                        lineNo}, this.DeleteIncidentLineOperationCompleted, userState);
+        }
+        
+        private void OnDeleteIncidentLineOperationCompleted(object arg) {
+            if ((this.DeleteIncidentLineCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.DeleteIncidentLineCompleted(this, new DeleteIncidentLineCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:PostIncidentLogs", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="PostIncidentLogs_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string PostIncidentLogs(string applicationNo) {
+            object[] results = this.Invoke("PostIncidentLogs", new object[] {
+                        applicationNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void PostIncidentLogsAsync(string applicationNo) {
+            this.PostIncidentLogsAsync(applicationNo, null);
+        }
+        
+        /// <remarks/>
+        public void PostIncidentLogsAsync(string applicationNo, object userState) {
+            if ((this.PostIncidentLogsOperationCompleted == null)) {
+                this.PostIncidentLogsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnPostIncidentLogsOperationCompleted);
+            }
+            this.InvokeAsync("PostIncidentLogs", new object[] {
+                        applicationNo}, this.PostIncidentLogsOperationCompleted, userState);
+        }
+        
+        private void OnPostIncidentLogsOperationCompleted(object arg) {
+            if ((this.PostIncidentLogsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.PostIncidentLogsCompleted(this, new PostIncidentLogsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("urn:microsoft-dynamics-schemas/codeunit/HRPortal:GenerateIncidentLog", RequestNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", ResponseElementName="GenerateIncidentLog_Result", ResponseNamespace="urn:microsoft-dynamics-schemas/codeunit/HRPortal", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [return: System.Xml.Serialization.XmlElementAttribute("return_value")]
+        public string GenerateIncidentLog(string documentNo) {
+            object[] results = this.Invoke("GenerateIncidentLog", new object[] {
+                        documentNo});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GenerateIncidentLogAsync(string documentNo) {
+            this.GenerateIncidentLogAsync(documentNo, null);
+        }
+        
+        /// <remarks/>
+        public void GenerateIncidentLogAsync(string documentNo, object userState) {
+            if ((this.GenerateIncidentLogOperationCompleted == null)) {
+                this.GenerateIncidentLogOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGenerateIncidentLogOperationCompleted);
+            }
+            this.InvokeAsync("GenerateIncidentLog", new object[] {
+                        documentNo}, this.GenerateIncidentLogOperationCompleted, userState);
+        }
+        
+        private void OnGenerateIncidentLogOperationCompleted(object arg) {
+            if ((this.GenerateIncidentLogCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GenerateIncidentLogCompleted(this, new GenerateIncidentLogCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -10338,6 +10661,162 @@ namespace HRPortal.HRPortal {
         private object[] results;
         
         internal DeleteRiskCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GenerateStatusPeriodCompletedEventHandler(object sender, GenerateStatusPeriodCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GenerateStatusPeriodCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GenerateStatusPeriodCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void CreateNewIncodentLogCompletedEventHandler(object sender, CreateNewIncodentLogCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateNewIncodentLogCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateNewIncodentLogCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void CreateIncidentSummeryCompletedEventHandler(object sender, CreateIncidentSummeryCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CreateIncidentSummeryCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CreateIncidentSummeryCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void DeleteIncidentLineCompletedEventHandler(object sender, DeleteIncidentLineCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class DeleteIncidentLineCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal DeleteIncidentLineCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void PostIncidentLogsCompletedEventHandler(object sender, PostIncidentLogsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class PostIncidentLogsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal PostIncidentLogsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void GenerateIncidentLogCompletedEventHandler(object sender, GenerateIncidentLogCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GenerateIncidentLogCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GenerateIncidentLogCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

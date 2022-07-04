@@ -13,13 +13,13 @@ namespace HRPortal {
     public partial class NewRiskIncidentLogs {
         
         /// <summary>
-        /// generalfeedback control.
+        /// generalFeedback control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl generalfeedback;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl generalFeedback;
         
         /// <summary>
         /// strategicplanno control.
@@ -40,13 +40,31 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.DropDownList funcionalworkplan;
         
         /// <summary>
-        /// annualreportingcode control.
+        /// RiskId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList annualreportingcode;
+        protected global::System.Web.UI.WebControls.DropDownList RiskId;
+        
+        /// <summary>
+        /// RiskDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox RiskDescription;
+        
+        /// <summary>
+        /// riskVategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList riskVategory;
         
         /// <summary>
         /// severityLevel control.
@@ -76,22 +94,13 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox timeIncident;
         
         /// <summary>
-        /// DropDownList10 control.
+        /// OccurrenceType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList10;
-        
-        /// <summary>
-        /// DropDownList11 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList11;
+        protected global::System.Web.UI.WebControls.DropDownList OccurrenceType;
         
         /// <summary>
         /// incidentLocations control.
@@ -112,31 +121,76 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.DropDownList primTrigger;
         
         /// <summary>
-        /// apply control.
+        /// rootCauseSumm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button apply;
+        protected global::System.Web.UI.WebControls.TextBox rootCauseSumm;
         
         /// <summary>
-        /// Div1 control.
+        /// categoryOfPerson control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        protected global::System.Web.UI.WebControls.DropDownList categoryOfPerson;
         
         /// <summary>
-        /// impacttype control.
+        /// reportedBy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList impacttype;
+        protected global::System.Web.UI.WebControls.TextBox reportedBy;
+        
+        /// <summary>
+        /// responsibilityCenter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList responsibilityCenter;
+        
+        /// <summary>
+        /// EscalationOfficer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EscalationOfficer;
+        
+        /// <summary>
+        /// next control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button next;
+        
+        /// <summary>
+        /// linesFeedback control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl linesFeedback;
+        
+        /// <summary>
+        /// impactType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList impactType;
         
         /// <summary>
         /// description control.
@@ -148,76 +202,112 @@ namespace HRPortal {
         protected global::System.Web.UI.WebControls.TextBox description;
         
         /// <summary>
-        /// categoryparty control.
+        /// personReporting control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList categoryparty;
+        protected global::System.Web.UI.WebControls.DropDownList personReporting;
         
         /// <summary>
-        /// TextBox1 control.
+        /// Officer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.DropDownList Officer;
         
         /// <summary>
-        /// contactdetails control.
+        /// contactDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox contactdetails;
+        protected global::System.Web.UI.WebControls.TextBox contactDetails;
         
         /// <summary>
-        /// additionalcomments control.
+        /// additionalComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox additionalcomments;
+        protected global::System.Web.UI.WebControls.TextBox additionalComments;
         
         /// <summary>
-        /// Button1 control.
+        /// policeReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox policeReport;
         
         /// <summary>
-        /// documentsfeedback control.
+        /// reportDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl documentsfeedback;
+        protected global::System.Web.UI.WebControls.TextBox reportDate;
         
         /// <summary>
-        /// document control.
+        /// policeStation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload document;
+        protected global::System.Web.UI.WebControls.TextBox policeStation;
         
         /// <summary>
-        /// uploadDocument control.
+        /// ReportingOfficer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button uploadDocument;
+        protected global::System.Web.UI.WebControls.TextBox ReportingOfficer;
+        
+        /// <summary>
+        /// addIncidentLog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addIncidentLog;
+        
+        /// <summary>
+        /// previous control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button previous;
+        
+        /// <summary>
+        /// post control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button post;
+        
+        /// <summary>
+        /// lineNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox lineNo;
         
         /// <summary>
         /// fileName control.

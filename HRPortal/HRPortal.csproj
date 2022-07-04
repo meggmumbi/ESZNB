@@ -171,6 +171,7 @@
     <Content Include="ImprestSurrender.aspx" />
     <Content Include="ImprestSurrenderApproverEntries.aspx" />
     <Content Include="ImprestSurrenders.aspx" />
+    <Content Include="IncidentLogPrintout.aspx" />
     <Content Include="JobDetails.aspx" />
     <Content Include="leaveapplication.aspx" />
     <Content Include="leavebalances.aspx" />
@@ -198,6 +199,7 @@
     <Content Include="OSHSummery.aspx" />
     <Content Include="packages.config" />
     <Content Include="PerformanceLog.aspx" />
+    <Content Include="periodicReportPrintout.aspx" />
     <Content Include="PeriodicStatusDetails.aspx" />
     <Content Include="PLogReport.aspx" />
     <Content Include="PostedClaims.aspx" />
@@ -625,6 +627,13 @@
     <Compile Include="ImprestSurrenders.aspx.designer.cs">
       <DependentUpon>ImprestSurrenders.aspx</DependentUpon>
     </Compile>
+    <Compile Include="IncidentLogPrintout.aspx.cs">
+      <DependentUpon>IncidentLogPrintout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IncidentLogPrintout.aspx.designer.cs">
+      <DependentUpon>IncidentLogPrintout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="initiativeselections.cs" />
     <Compile Include="JDTargets.cs" />
     <Compile Include="JobDetails.aspx.cs">
@@ -840,6 +849,13 @@
       <DependentUpon>PerformanceLog.aspx</DependentUpon>
     </Compile>
     <Compile Include="PerformanceLogs.cs" />
+    <Compile Include="periodicReportPrintout.aspx.cs">
+      <DependentUpon>periodicReportPrintout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="periodicReportPrintout.aspx.designer.cs">
+      <DependentUpon>periodicReportPrintout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PeriodicStatusDetails.aspx.cs">
       <DependentUpon>PeriodicStatusDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

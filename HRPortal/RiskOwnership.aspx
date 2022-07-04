@@ -29,7 +29,7 @@
                         string doctype = Request.QueryString["DocumentType"];
                         int riskId = Convert.ToInt32(Request.QueryString["RiskId"]);
                         string docNumber = Request.QueryString["DocumentNo"];
-                        var queryRisk = nav.RmpLineRiskOwnerships.Where(r => r.Risk_ID==riskId && r.Document_No==docNumber && r.Document_Type==doctype);
+                        var queryRisk = nav.RmpLineRiskOwnerships.Where(r => r.Risk_ID==riskId && r.Document_No==docNumber);
                         foreach (var risk in queryRisk)
                         {
                     %>
@@ -46,7 +46,7 @@
         </div>
              <div class="panel-footer">
             <asp:Button runat="server" CssClass="btn btn-warning pull-left" Text="Previous" ID="previous" OnClick="previous_Click" />
-           
+          
             <div class="clearfix"></div>
         </div>
     </div>

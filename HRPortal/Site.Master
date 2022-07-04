@@ -509,8 +509,8 @@
                                                     </a>
                                                     <ul class="treeview-menu">
                                                         <li><a href="NewRiskIncidentLogs.aspx">New Risk Incident Log</a></li>
-                                                        <li><a href="OpenRiskIncidentLogs.aspx">Open Risk Incident Logs</a></li>
-                                                        <li><a href="ApprovedRiskIncidentLogs.aspx">Approved Risk Incident Logs</a></li>
+                                                        <li><a href="OpenRiskIncidentLogs.aspx?status=open">Open Risk Incident Logs</a></li>
+                                                        <li><a href="OpenRiskIncidentLogs.aspx?status=approved">Approved Risk Incident Logs</a></li>
                                                     </ul>
                                                 </li>
                                             </ul>

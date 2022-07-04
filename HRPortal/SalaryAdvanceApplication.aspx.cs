@@ -118,8 +118,7 @@ namespace HRPortal
                         applicationNo = info[2];
                         generalFeedback.InnerHtml = "<div class='alert alert-success'>" + info[1] + " <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a></div>";
                         approval.Visible = true;
-                        //ScriptManager.RegisterClientScriptBlock(this, typeof(Page), "redirectJS", "setTimeout(function() { window.location.replace('Dashboard.aspx') }, 5000);", true);
-                        //Response.Redirect("salaryAdvanceApplications.aspx");
+                      
                         }
                     else
                     {

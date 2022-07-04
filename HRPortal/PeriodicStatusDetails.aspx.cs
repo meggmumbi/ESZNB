@@ -26,5 +26,11 @@ namespace HRPortal
                 }
             }
         }
+
+        protected void printriskreport_Click(object sender, EventArgs e)
+        {
+            string DocumentNo = Request.QueryString["DocumentNo"];           
+            Response.Redirect("periodicReportPrintout.aspx?&&DocumentNo=" + DocumentNo );
+        }
     }
 }

@@ -1177,6 +1177,119 @@
           </sequence>
         </complexType>
       </element>
+      <element name="GenerateStatusPeriod">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateStatusPeriod_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateNewIncodentLog">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="empNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="riskType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="managementplanId" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="riskId" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="riskDecsription" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="riskCategory" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="severityLevel" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateIncident" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="time" type="time" />
+            <element minOccurs="1" maxOccurs="1" name="occurrencetype" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="incidentLocations" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="primeTrigger" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="rootCause" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="personcategory" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="reportedBy" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="responsibilityCenter" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="escalationOfficer" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateNewIncodentLog_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateIncidentSummery">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="employeeNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="impactType" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="description" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="personReporting" type="int" />
+            <element minOccurs="1" maxOccurs="1" name="officer" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="contactDetails" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="additionalComments" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="policeReport" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="reportDate" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="policeStation" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="reportingOfficer" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateIncidentSummery_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DeleteIncidentLine">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="requisitionNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lineNo" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="DeleteIncidentLine_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostIncidentLogs">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="applicationNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="PostIncidentLogs_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateIncidentLog">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="documentNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateIncidentLog_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="ResetPassword">
         <complexType>
           <sequence>
@@ -3764,6 +3877,42 @@
   <message name="DeleteRisk_Result">
     <part name="parameters" element="tns:DeleteRisk_Result" />
   </message>
+  <message name="GenerateStatusPeriod">
+    <part name="parameters" element="tns:GenerateStatusPeriod" />
+  </message>
+  <message name="GenerateStatusPeriod_Result">
+    <part name="parameters" element="tns:GenerateStatusPeriod_Result" />
+  </message>
+  <message name="CreateNewIncodentLog">
+    <part name="parameters" element="tns:CreateNewIncodentLog" />
+  </message>
+  <message name="CreateNewIncodentLog_Result">
+    <part name="parameters" element="tns:CreateNewIncodentLog_Result" />
+  </message>
+  <message name="CreateIncidentSummery">
+    <part name="parameters" element="tns:CreateIncidentSummery" />
+  </message>
+  <message name="CreateIncidentSummery_Result">
+    <part name="parameters" element="tns:CreateIncidentSummery_Result" />
+  </message>
+  <message name="DeleteIncidentLine">
+    <part name="parameters" element="tns:DeleteIncidentLine" />
+  </message>
+  <message name="DeleteIncidentLine_Result">
+    <part name="parameters" element="tns:DeleteIncidentLine_Result" />
+  </message>
+  <message name="PostIncidentLogs">
+    <part name="parameters" element="tns:PostIncidentLogs" />
+  </message>
+  <message name="PostIncidentLogs_Result">
+    <part name="parameters" element="tns:PostIncidentLogs_Result" />
+  </message>
+  <message name="GenerateIncidentLog">
+    <part name="parameters" element="tns:GenerateIncidentLog" />
+  </message>
+  <message name="GenerateIncidentLog_Result">
+    <part name="parameters" element="tns:GenerateIncidentLog_Result" />
+  </message>
   <message name="ResetPassword">
     <part name="parameters" element="tns:ResetPassword" />
   </message>
@@ -4770,6 +4919,30 @@
     <operation name="DeleteRisk">
       <input name="DeleteRisk" message="tns:DeleteRisk" />
       <output name="DeleteRisk_Result" message="tns:DeleteRisk_Result" />
+    </operation>
+    <operation name="GenerateStatusPeriod">
+      <input name="GenerateStatusPeriod" message="tns:GenerateStatusPeriod" />
+      <output name="GenerateStatusPeriod_Result" message="tns:GenerateStatusPeriod_Result" />
+    </operation>
+    <operation name="CreateNewIncodentLog">
+      <input name="CreateNewIncodentLog" message="tns:CreateNewIncodentLog" />
+      <output name="CreateNewIncodentLog_Result" message="tns:CreateNewIncodentLog_Result" />
+    </operation>
+    <operation name="CreateIncidentSummery">
+      <input name="CreateIncidentSummery" message="tns:CreateIncidentSummery" />
+      <output name="CreateIncidentSummery_Result" message="tns:CreateIncidentSummery_Result" />
+    </operation>
+    <operation name="DeleteIncidentLine">
+      <input name="DeleteIncidentLine" message="tns:DeleteIncidentLine" />
+      <output name="DeleteIncidentLine_Result" message="tns:DeleteIncidentLine_Result" />
+    </operation>
+    <operation name="PostIncidentLogs">
+      <input name="PostIncidentLogs" message="tns:PostIncidentLogs" />
+      <output name="PostIncidentLogs_Result" message="tns:PostIncidentLogs_Result" />
+    </operation>
+    <operation name="GenerateIncidentLog">
+      <input name="GenerateIncidentLog" message="tns:GenerateIncidentLog" />
+      <output name="GenerateIncidentLog_Result" message="tns:GenerateIncidentLog_Result" />
     </operation>
     <operation name="ResetPassword">
       <input name="ResetPassword" message="tns:ResetPassword" />
@@ -5904,6 +6077,60 @@
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </input>
       <output name="DeleteRisk_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateStatusPeriod">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:GenerateStatusPeriod" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateStatusPeriod">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateStatusPeriod_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateNewIncodentLog">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:CreateNewIncodentLog" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateNewIncodentLog">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateNewIncodentLog_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateIncidentSummery">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:CreateIncidentSummery" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateIncidentSummery">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateIncidentSummery_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="DeleteIncidentLine">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:DeleteIncidentLine" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="DeleteIncidentLine">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="DeleteIncidentLine_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="PostIncidentLogs">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:PostIncidentLogs" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="PostIncidentLogs">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="PostIncidentLogs_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateIncidentLog">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/HRPortal:GenerateIncidentLog" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateIncidentLog">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateIncidentLog_Result">
         <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
       </output>
     </operation>

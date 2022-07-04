@@ -42,7 +42,7 @@
          </div>
          <br />
          <div>
-            <asp:Button runat="server" ID="printriskreport" CssClass="btn btn-success" Style="margin-left: 90%" Text="Print Report" />
+            <asp:Button runat="server" ID="printriskreport" CssClass="btn btn-success" Style="margin-left: 90%" Text="Print Report" OnClick="printriskreport_Click" />
         </div>
         <div class="panel-body">
             <div runat="server" id="teamFeedback"></div>
@@ -102,7 +102,7 @@
 
                                 <% 
                                     var nav = new Config().ReturnNav();
-                                    string docNo = Request.QueryString["requisitionNo"].Trim();
+                                    string docNo = Request.QueryString["DocumentNo"].Trim();
                                     var Activities = nav.RiskStatusReportLines.Where(r => r.Document_No == docNo).ToList();
                                     int count = 0;
                                     foreach (var activity in Activities)
